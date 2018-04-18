@@ -1,0 +1,1528 @@
+==01.Django的安 ==
+##20170519pm pass
+在当前目录创建一个 mysite 目录
+django-admin.py  startproject mysite
+
+django-admin.py  startproject csvt01
+
+
+settings.py
+
+TIME_ZONE='Asia/Shanghai' 
+LANGUAGE_COOD='zh-hans'
+
+
+settings.py
+
+INSTLLED_APPS
+
+'blog',
+
+
+
+urls.py
+
+url(r'^blog/index/$','blog.views.index'),
+
+django-admin.py startproject csvt
+cd  csvt01
+django-admin.py  startapp blog  # INSTLLED_APPS 里面的对应 上
+
+ 
+vim blog/views.py
+
+from django.http import HttpResponse
+def index(req):
+    return HttpResponse('<h1>hellow welcome </h1>')
+
+python manage.py runserver 
+
+
+127.0.0.1:8000/blog/index/
+
+hellow welcome
+
+
+
+
+# on frebsd 11 没成功所以 借用家里 kali 
+- No module named _sqlite3 -
+It is solved by stand the port ----------
+
+
+cd /usr/ports/databases/py-sqlite3
+sudo make install clean
+
+
+I have the problem in FreeBSD 8.1:
+
+after this one can see:
+
+OK ----------
+'>>>' import sqlite3 -----
+'>>>' sqlite3.apilevel -----
+'2.0'
+
+
+
+==02. 模板加载 ==
+20170522pm pass 
+
+sudo python manage.py runserver 192.168.1.103:80
+
+bluefish 
+mkdir blog/templates/
+vim blog/templates/index.html
+
+<h1>hello csvt </h1>
+
+
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+def index(req):
+    t = loader,get_template('index.html')
+    c = Context({}) 
+    return HttpResponse(t.render(c))
+    return HttpResponse('<h1>hellow welcome </h1>')
+
+
+http://192.168.1.103/blog/index/
+hello csvt
+
+#升级 
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+’‘’
+def index(req):
+    t = loader.get_template('index.html')
+    # is . not , 
+    c = Context({}) 
+    return HttpResponse(t.render(c))
+    return HttpResponse('<h1>hellow welcome </h1>')
+‘’‘
+##  ('index.html',{})  第一个模板，第二Context对象 
+def index(req):
+    return render_to_response('index.html',{})
+
+
+==03. 模板变量==
+pass 20170523
+sudo python manage.py runserver 192.168.1.103:80
+
+
+
+模板变量 ： {} 括起来的
+
+blog/templates/index.html
+<html>
+<title > {{title}}</title>
+<body>
+
+
+<h1> hello {{user}}</h1>
+    
+</body>
+</html>
+
+
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+
+
+def index(req):
+    return render_to_response('index.html',{'title': 'my blog', 'user':'evan'})
+
+
+
+
+#改进版本1
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+#变量定义
+def index(req):
+    user = {'name':'tom', 'age':23, 'sex':'male'}
+    return render_to_response('index.html',{'title':'my page','user':user})
+
+#拿出字典中的数据 
+vim blog/templates/index.html
+<title > {{title}}</title>
+
+<h1> hello {{user.name}}</h1>
+<li> age : {{user.age}}</li>
+
+
+localhost:8900/blog/index/
+
+
+
+#改进版本2 使用对象 
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+
+class Person(object):
+    def __init__(self,name,age,sex):
+    self.name = name
+    self.age = age
+    self.sex = sex
+#变量定义
+def index(req):
+    #user = {'name':'tom', 'age':23, 'sex':'male'}
+    user = Person('max',33,'male')
+    book_list = [ 'python','java','php','web']
+    return render_to_response('index.html',{'title':'my page','user':user,'book_lisst':book_list)
+
+http://192.168.1.103/blog/index/
+hello {'age': 23, 'name': 'tom', 'sex': 'male'}
+
+
+#拿出字典中的数据 
+vim blog/templates/index.html
+<title > {{title}}</title>
+
+<h1> hello {{user.name}}</h1>
+<li> age : {{user.age}}</li>
+<li>sex :{{user.sex}} </li>
+
+
+
+{{book_list}}
+{{book_list.0}}
+{{book_list.1}}
+{{book_list.2}}
+{{book_list.3}}
+</body>
+
+
+localhost:8900/blog/index/
+
+
+#3
+#改进版本3 使用对象 
+vim blog/views.py
+
+#-*- coding:utf-8 -*-
+#from django.http import HttpResponse
+#from django.template import loader, Context
+from django.shortcuts import render_to_response
+
+class Person(object):
+    def __init__(self,name,age,sex):
+        self.name = name
+        self.age = age
+        self.sex = sex
+    def say(self):
+        return  "I am " + self.name
+#变量定义
+def index(req):
+    #user = {'name':'tom', 'age':23, 'sex':'male'}
+    user = Person ('max',33,'male')
+    book_list = [ 'python','java','php','web']
+    return render_to_response('index.html',{'title':'my page','user':user,'book_list':book_list})
+    
+http://192.168.1.103/blog/index/
+
+hello max
+
+age : 33
+sex :male
+['python', 'java', 'php', 'web']
+
+12 min    
+    
+
+#拿出字典中的数据 
+vim blog/templates/index.html
+<html>
+<title > {{title}}</title>
+
+<body>
+
+<h1> hello {{user.name}}</h1>
+<li> age : {{user.age}}</li>
+<li>sex :{{user.sex}} </li>
+<div> the  {{user.name}} say : {{user.say}}  </li>
+<li>{{book_list}}</li>
+<li>{{book_list.0}}</li>
+<li>{{book_list.1}}</li>
+<li>{{book_list.2}}</li>
+<li>{{book_list.3}}</li>
+</body>
+</html>
+
+
+http://192.168.1.103/blog/index/
+
+hello max
+
+age : 33
+sex :male
+the max say : I am max
+['python', 'java', 'php', 'web']
+python
+java
+php
+web
+
+总结
+可以在模板上传递集基本类型  字典   对象
+
+传递的变量可以为
+
+
+
+== 04.Django模板标签之条件标签if和循环标签for   ==
+pass 20170524
+
+sudo python manage.py runserver 192.168.1.103:80
+
+
+vim blog/templates/index.html
+<title > {title}</title>
+
+<body>
+{% if user %}
+    <li>  name : {{user.name}} </li>
+
+{% else %}
+用户不存在
+
+{% endif %}
+
+
+{% for book in book_list  %}
+<li> {{book}} </li>
+{% endfor %}
+
+
+{% for k in user %}
+<li> {{k}}</li>
+{% endfor %}
+
+http://127.0.0.1:8000/blog/index/
+python
+java
+php
+web
+age
+name
+sex
+
+
+#上面三行变成
+{% for k, v in user %}
+<li> {{k}}</li>
+
+#序号
+<li> {{forloop.counter}}.{{k}}:{{v}}</li>
+{% endfor %}
+
+</body>
+
+{% for k,v in user.items %}
+<li> {{k}}:{{v}}</li>
+{% endfor %}
+age:23
+name:tom
+sex:male
+
+
+https://docs.djangoproject.com/en/1.8/ref/templates/language/#templates
+
+
+
+vim blog/views.py
+
+from django.http import HttpResponse
+from django.template import loader, Context
+from django.shortcuts import render_to_response
+
+class Person(object):
+    def __init__(self,name,age,sex):
+    self.name = name
+    self.age = age
+    self.sex = sex
+    def say(self);
+        return  "I am " + self.name
+#变量定义
+def index(req):
+    #user = {'name':'tom', 'age':23, 'sex':'male'}
+    user = Person('max',33,'male')
+    book_list = [ 'python','java','php','web']
+
+    return render_to_response('index.html',{'title':'my page','user':user,'book_lisst':book_list)
+# 用户不存在 ,在最后面要添加 'user':user 回来
+    return render_to_response('index.html',{'title':'my page','book_lisst':book_list, 'user':user)
+
+
+
+Built-in template tags and filters
+
+Boolean operators
+https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
+
+
+localhost:8900/blog/index/
+
+
+
+== 05.Django地址映射配置urlconfig ==
+pass 20170525
+
+位置参数 关键字参数
+
+csvt01/urls.py
+
+
+from blog.views import index
+#可以 直接
+url(r'^blog/index/$',index),
+
+或者 不过版本为1.8之前
+
+urlpatterns = patterns('blog.views',
+
+ url(r'^blog/index/$','index'),
+
+ ###
+ urlpatterns = patterns('blog.views',
+
+ url(r'^blog/index/\d{2}/$','index'),
+
+
+
+
+url(r'^blog/index/\d{2}/$','blog.views.index'),
+
+#这样都可以访问 RE嘛
+http://127.0.0.1:8000/blog/index/12/
+http://127.0.0.1:8000/blog/index/34/
+
+vim urls.py
+url(r'^blog/index/(?P<id>\d{2}/$','blog.views.index'),
+vim blog/views.py
+#变量定义
+#def index(req):
+def index(req,id):
+    user = {'name':'tom', 'age':23, 'sex':'male'}
+    #user = Person ('evan',33,'male')
+    book_list = [ 'python','java','php','web']
+    return render_to_response('index.html',{'title':'my page','user':user,'book_list':book_list,'id':id})
+
+vim index.html
+
+id : {{id}}
+
+
+http://127.0.0.1:8000/blog/index/34
+Exception Type:	ImproperlyConfigured
+Exception Value:
+"^blog/index/(?P<id>\d{2}/$" is not a valid regular expression: unbalanced parenthesis
+
+
+
+url(r'^blog/index/(d{2}/$','blog.views.index'),
+
+
+vim blog/views.py
+#变量定义
+#def index(req):
+def index(req,parm):
+    user = {'name':'tom', 'age':23, 'sex':'male'}
+    #user = Person ('evan',33,'male')
+    book_list = [ 'python','java','php','web']
+    return render_to_response('index.html',{'title':'my page','user':user,'book_list':book_list,'id':parm})
+
+
+
+
+
+
+
+== 06.如何使用Django模板  ==
+pass 20170529
+
+
+django-admin.py  startproject  csvt02
+cd csvt02
+django-admin.py  startapp blog
+
+vim settings.py
+
+INSTALLED_APPS = (
+     'blog',
+
+mkdir  blog/templates
+
+vi urls.py 
+
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+
+    # url(r'^$', 'csvt02.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^index/$','blog.views.index'),
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+********
+vim blog/views.py
+
+from django.shortcuts import render
+from  django.template import  loader, Context
+from django.http import HttpResponse
+# Create your views here.
+
+def index(req):
+    t =loader.get_template('index.html')
+    c = Context({'uname':'evan'})
+    html=t.render(c)
+    return HttpResponse(html)
+  
+
+
+vim index.html
+<html>
+<title > {{title}}</title>
+
+<body>
+<h1>hellow html index </h1>
+</body>
+</html>
+
+
+
+http://192.168.1.103/index/
+
+hellow html index
+
+结合ipython 
+
+ipython  manage.py shell
+ on kali can not open  that 
+
+
+第一种是生成 
+下面是使用模板的第二种方法 
+
+Template类  直接生成 
+
+ vim index.html
+ <body>
+<h1>hellow  {{uname}} </h1>
+</body>
+
+vim urls.py
+    url(r'^index1/$','blog.views.index1'),
+    
+vim views.py
+from django.shortcuts import render
+from  django.template import  loader, Context, Template
+from django.http import HttpResponse
+# Create your views here.
+
+def index(req):
+    t =loader.get_template('index.html')
+    c = Context({'uname':'evan'})
+    #html=t.render(c)
+    #return HttpResponse(html)
+    return HttpResponse(t.render(c))
+
+def index1(req):
+    t = Template('<h1>hello {{uname}}</h1>')
+    c = Context({'uname':'csvt'})
+    return HttpResponse(t.render(c))
+    
+        
+http://192.168.1.103/index1/
+hello csvt
+
+
+ 
+第三种方法么 全部在一起了
+
+from django.shortcuts import render, render_to_response
+
+def index2(req):
+   return  render_to_response('index.html',{'uname':'csvt02'})
+    
+vim views.py 
+    url(r'^index2/$','blog.views.index2'),
+    
+http://192.168.1.103/index2/
+hellow evan02
+
+    
+
+记得在公司用PYCHARM 
+
+在家用 ECLIPSE 这样就不会不idea 目录冲突了  
+
+
+== 07.在Django中使用数据库（1.mp4 ==
+pass 20170529pm 
+
+/etc/init.d/mysql start 
+
+rpm -qa | grep MySQL-python 
+
+In [1]: import MySQLdb
+
+In [2]: 
+
+
+ django-admin.py  startproject csvt03
+ cd csvt03
+ django-admin.py  startapp  blog
+
+create database csvt default charset = utf8; 
+
+https://docs.djangoproject.com/en/1.8/ref/databases/#mysql-notes
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'djangodb',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+    }
+}
+
+
+vim models.py
+from django.db import models
+
+# Create your models here.
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+
+同步一下数据库
+shell> python manage.py syncdb 
+
+
+#新版本一定用下面这些 不然没有 blog_employee 表哦 
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+
+mysql> desc blog_employee;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+== 08.在Django中使用数据库2-.mp4==
+pass 20170531
+Django 模型（数据库
+http://code.ziqiangxuetang.com/django/django-models.html
+对了 要结合一下自强学堂的相关知识一起学习更加有效果
+
+
+19:100
+
+python manage.py shell  #交互模式 
+not 
+ipython manage.py shell
+
+
+创建记录的第一种
+
+In [2]: from blog.models import Employee
+
+In [3]: Employee
+Out[3]: blog.models.Employee
+
+In [7]: emp=Employee()
+
+In [8]: emp.name= 'alen'
+
+In [9]: emp.save()
+
+#查看一下 
+mysql> select * from blog_employee;
++----+------+
+| id | name |
++----+------+
+|  1 | alen |
++----+------+
+
+
+创建记录的第二种  在构造方法中直接  
+In [11]: emp=Employee(name='tom')
+
+In [12]: emp.save()
+
+mysql> select * from blog_employee;
++----+------+
+| id | name |
++----+------+
+|  1 | alen |
+|  2 | tom  |
++----+------+
+
+
+创建记录的第三 种 
+
+In [13]: Employee.objects.create(name='max')
+Out[13]: <Employee: Employee object>
+
+mysql> select * from blog_employee;
++----+------+
+| id | name |
++----+------+
+|  1 | alen |
+|  2 | tom  |
+|  3 | max  |
++----+------+
+
+
+In [15]: Employee.objects.create(name='sumer')
+Out[15]: <Employee: Employee object>
+
+In [16]: emp
+Out[16]: <Employee: Employee object>
+
+
+In [17]: emps = Employee.objects.all()
+
+In [18]: emps
+Out[18]: [<Employee: Employee object>, <Employee: Employee object>, <Employee: Employee object>, <Employee: Employee object>, <Employee: Employee object>]
+
+In [19]: emps[0].id
+Out[19]: 1L
+
+In [20]: emps[0].name
+Out[20]: u'alen'
+
+vim models.py 
+#-*- coding:utf-8 -*-
+from django.db import models
+
+# Create your models here.
+#自己定义的类
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+    
+    def __unicode__(self):
+        return self.name 
+
+
+python manage.py shell
+In [1]: from blog.models import Employee
+In [3]: emps = Employee.objects.all()
+
+In [4]: emps
+Out[4]: [<Employee: alen>, <Employee: tom>, <Employee: max>, <Employee: max>, <Employee: sumer>]
+
+
+vim urls.py
+
+    url(r'^index/$','blog.views.index'),
+    
+vim views.py
+
+
+****
+vim urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'csvt03.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^index/$','blog.views.index'),
+]
+
+vim models.py
+#-*- coding:utf-8 -*-
+from django.db import models
+
+# Create your models here.
+#自己定义的类
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+
+vim views.py
+#-*- coding:utf-8 -*-
+from django.shortcuts import render_to_response
+from  blog.models import Employee
+# Create your views here.
+
+def index(req):
+    emps = Employee.objects.all()
+    return render_to_response('index.html',{'emps':emps})
+
+#render_to_response
+
+
+vim index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{%for emp in emps%}
+<div>{{emp}}</div>
+{% endfor %}
+</body>
+</html>
+
+visa http://127.0.0.1:8000/index/
+
+alen
+tom
+
+
+vim index.hmtl
+<body>
+
+{%for emp in emps%}
+<div>{{forloop.counter}}  {{emp}}</div>
+{% endfor %}
+</body>
+
+visa http://127.0.0.1:8000/index/
+1 alen
+2 tom
+
+***
+
+
+== 09.Django数据库之多对一映射.mp4 ==
+
+20170602 感觉不全明白 呢
+
+django-admin.py  startproject  csvt04
+cd csvt04
+django-admin.py startapp blog
+
+
+INSTALLED_APPS = (
+    'blog',
+
+
+
+vim models.py
+from django.db import models
+class Entry(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+
+class Blog(models.Model):
+    name = models.CharField(max_length=30)
+    entry = models.ForeignKey(Entry)
+
+    def __unicode__(self):
+        return self.name
+# Create your models here.
+
+
+
+#新版本一定用下面这些 不然没有 blog_employee 表哦
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+
+
+python  manage.py shell
+
+In [1]: from blog.models import Entry,Blog
+
+In [2]: entry1 =  Entry.objects.create(name='alen')
+
+In [3]: entry1
+Out[3]: <Entry: alen>
+
+In [4]: entry2 =  Entry.objects.create(name='max')
+
+In [5]: entry3 =  Entry.objects.create(name='carl')
+
+
+In [6]: blog1 = Blog.objects.create(name="alen_blog1", entry=entry1)
+
+In [7]: blog1
+Out[7]: <Blog: alen_blog1>
+
+
+
+In [8]: blog1.entry
+Out[8]: <Entry: alen>
+
+
+many to one
+
+In [9]: entry1.blog_set
+Out[9]: <django.db.models.fields.related.RelatedManager at 0x7f1058c1d390>
+
+In [10]: entry1.blog_set.all()
+Out[10]: [<Blog: alen_blog1>]
+
+检索
+
+
+== 10.Django管理界面.mp4 ==
+
+数据库的使用+后台管理界面
+
+原作者用 sqlite3
+
+django-admin.py  startproject csvt05
+cd csvt05
+django-admin.py startapp  blog
+
+vim urls.py
+#by evan
+#admin.audodiscover()
+#	'module' object has no attribute 'audodiscover'
+
+
+
+vim models.py
+
+from django.db import models
+
+sex_choices=(
+    ('f','famale'),
+    ('m','male'),
+)
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    sex = models.CharField(max_length=1, choices=sex_choices)
+
+
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations #为这些修改创建迁移文件
+python manage.py migrate #将这些改变更新到数据库中
+
+
+# -*- coding: utf-8 -*-
+
+
+
+ 创建一个管理员用户
+python manage.py createsuperuser
+为什么后台老是登录不了呢  我搞错了 因为 运行错项目了
+
+
+
+vim blog/admin.py
+
+
+from django.contrib import admin
+from blog.models import  User
+
+admin.site.register(User)
+
+# Register your models here.
+这样后台就有 User了
+
+vim models.py
+
+#-*- coding:utf-8 -*-
+
+from django.db import models
+
+sex_choices=(
+    ('f','famale'),
+    ('m','male'),
+)
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    sex = models.CharField(max_length=1, choices=sex_choices)
+
+# not display object
+    def __unicode__(self):
+        return  self.name
+
+
+
+mysql> select * from  blog_user;
++----+------+-----+
+| id | name | sex |
++----+------+-----+
+|  1 | carl | f   |
+|  2 | tom  | f   |
+|  3 | eva  | f   |
++----+------+-----+
+
+
+
+厉害了  人家 13年就写django
+
+
+
+创建users
+
+创建users最直接的方法是使用create_user()辅助函数：
+
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
+
+# At this point, user is a User object that has already been saved
+# to the database. You can continue to change its attributes
+# if you want to change other fields.
+>>> user.last_name = 'Lennon'
+>>> user.save()
+如果你已经安装了Django admin
+
+
+创建superusers¶
+
+使用createsuperuser命令创建superusers：
+
+$ python manage.py createsuperuser --username=nick --email=joe@example.com
+将会提示你输入一个密码。在你输入一个密码后，该user将会立即创建。如果不带--username和--email选项，将会提示你输入这些值。
+
+
+http://python.usyiyi.cn/translate/django_182/topics/auth/default.html
+
+
+
+admin admin
+sudo python manage.py runserver
+
+
+==11.Django数据库之多对多映射   ==
+
+
+django-admin.py  startproject csvt06
+cd csvt06
+django-admin.py startapp  blog
+
+vim models.py
+#-*- coding:utf-8 -*-
+from django.db import models
+
+class Author(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+class Book(models.Model):
+    name = models.CharField(max_length=30)
+    authors = models.ManyToManyField(Author)
+
+    def __unicode__(self):
+        return self.name
+
+# Create your models here.
+
+
+
+python manage.py makemigrations #为这些修改创建迁移文件
+python manage.py migrate #将这些改变更新到数据库中
+
+migrate
+英 [maɪ'greɪt; 'maɪgreɪt]  美 ['maɪɡret]
+vi. 移动；随季节而移居；移往
+vt. 使移居；使移植
+
+python manage.py shell
+
+In [1]: from blog.models import Author,Book
+
+In [2]: Author.objects.create(name='alen')
+Out[2]: <Author: alen>
+
+In [3]: Author.objects.create(name='ben')
+Out[3]: <Author: ben>
+
+In [4]: Author.objects.create(name='carl')
+Out[4]: <Author: carl>
+
+In [5]: Author.objects.create(name='dev')
+Out[5]: <Author: dev>
+
+n [6]: authors = Author.objects.all()
+
+In [7]: authors
+Out[7]: [<Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
+
+
+In [8]: b1 = Book()
+In [9]: b1.name='python book1'
+In [10]: b1.save()
+
+12:12
+alen= Author.objects.get(name__exact='alen')
+#In [12]: alen = Author.objects.get(name='alen') #这个有时手工就好了 cp err 
+
+In [13]: alen
+Out[13]: <Author: alen>
+
+In [14]: b1.authors.add(alen)
+
+
+In [15]: b1.authors.add(authors[1])
+
+In [16]: b1.authors.all()
+Out[16]: [<Author: alen>, <Author: ben>]
+
+In [17]: b1.authors.add(authors[2])
+
+In [18]: b1.authors.add(authors[3])
+
+
+In [20]: b1.authors.all()
+Out[20]: [<Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
+
+In [21]: b1.authors.remove(alen)
+
+In [22]: b1.authors.all()
+Out[22]: [<Author: ben>, <Author: carl>, <Author: dev>]
+
+search
+
+n [23]: b1.authors.filter(name__exact='carl')
+Out[23]: [<Author: carl>]
+
+In [24]: alen
+Out[24]: <Author: alen>
+
+In [25]: alen.book_set.all()
+Out[25]: []
+
+In [26]: alen.book_set.add(b1)
+
+In [27]: b1
+Out[27]: <Book: python book1>
+
+In [29]: alen.book_set.create(name="python book2")
+Out[29]: <Book: python book2>
+
+In [30]: alen.book_set.all()
+Out[30]: [<Book: python book1>, <Book: python book2>]
+
+In [31]: books = Book.objects.all()
+
+In [32]: books
+Out[32]: [<Book: python book1>, <Book: python book2>]
+
+In [33]: alen.book_set.remove(books[0])
+
+In [34]: alen.book_set.all()
+Out[34]: [<Book: python book2>]
+
+
+
+
+
+== 12.Django数据库之显示 ==
+
+
+In [46]: from blog.models import Author,Book
+
+In [47]: authors = Author.objects.all()
+
+In [48]: authors
+Out[48]: [<Author: ben>, <Author: carl>, <Author: dev>, <Author: alen>, <Author: ben>, <Author: carl>, <Author: dev>]
+
+In [49]: a1=authors[0]
+
+In [50]: a1.book_set 
+Out[50]: <django.db.models.fields.related.ManyRelatedManager at 0x7fcba41d13d0>
+
+
+
+In [51]: a1.book_set.all()
+Out[51]: []
+为空 为什么的 02：28 后来又好了 我去 
+In [40]: a1.book_set.all()
+Out[40]: [<Book: python book2>]
+
+In [41]: a1.book_set.all()[0]
+Out[41]: <Book: python book2>
+
+In [42]: for author in Author.objects.all():
+    ...:     for book in author.book_set.all():
+    ...:         print book 
+    ...:         
+python book2
+python book1
+python book1
+python book1
+
+
+
+In [43]: Author.objects.all()
+Out[43]: [<Author: alen>, <Author: ben>, <Author: Carl>, <Author: Dev>]
+
+In [44]: author.book_set.all()
+Out[44]: [<Book: python book1>]
+
+
+mkdir templates
+
+vim models.py
+#-*- coding:utf-8 -*-
+from django.db import models
+
+# Create your models here.
+#自己定义的类
+class Employee(models.Model):
+    name = models.CharField(max_length=20)
+    
+    def __unicode__(self):
+        return self.name 
+
+vim views.py 
+from django.shortcuts import render, render_to_response
+from blog.models import  Author,Book
+
+def show_author(req):
+    authors = Author.objects.all()
+    return render_to_response('show_author.html',{'authors':authors})
+    
+# Create your views here.
+
+vim show_author.html
+{{authors}}
+
+vim urls.py 
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'csvt06.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/show_author/$', 'blog.views.show_author'),
+]
+
+
+
+http://127.0.0.1:8000/blog/show_author/
+
+
+[<Author: alen>, <Author: ben>, <Author: Carl>, <Author: Dev>]
+
+
+vim show_author.html
+{% for author in authors %}
+<li>{{author}}</li>
+
+{%endfor%}
+
+http://127.0.0.1:8000/blog/show_author/
+alen
+ben
+Carl
+Dev
+
+# book in author.book_set.all   一个object 管理对象 ？
+vim show_author.html
+{% for author in authors %}
+<div>
+    <h3>{{author.name}}</h3>
+    {%for book in author.book_set.all %}
+    <li>{{book}}</li>
+    {%endfor%}
+</div>
+{%endfor%}
+
+
+http://127.0.0.1:8000/blog/show_author/
+alen
+
+python book2
+ben
+
+python book1
+Carl
+
+python book1
+Dev
+
+python book1
+
+
+python manage.py shell
+
+In [1]: from blog.models import Author
+
+In [2]: alen= Author.objects.filter(name='alen')
+
+In [3]: alen
+Out[3]: [<Author: alen>]
+
+In [4]: alen= Author.objects.filter(name='alen')[0]
+
+In [5]: alen
+Out[5]: <Author: alen>
+
+n [6]: alen.book_set.create(name='web1 book');
+
+
+#visa 多了一下web1 book on alen 
+http://127.0.0.1:8000/blog/show_author/
+alen
+
+python book2
+web1 book
+
+ben
+
+python book1
+Carl
+
+python book1
+Dev
+
+python book1
+
+*****
+show book 
+
+vim urls.py 
+url(r'^blog/show_book/$', 'blog.views.show_book'),
+
+#? 为什么是 {'books':books}) 要显示么 明天看一下为什么 
+vim views.py
+def show_book(req):
+    authors = Book.objects.all()
+    return render_to_response('show_book.html',{'books':books})
+    
+
+vim show_book.html 
+
+{% for book  in books %}
+<div>
+<h1>{{book}}</h1>
+</div>
+{%endfor%}
+
+http://127.0.0.1:8000/blog/show_book/
+python book1
+
+python book2
+
+web1 book
+
+
+
+In [1]: from blog.models import Book
+
+In [2]: books = Book.objects.all()
+
+In [3]: books
+Out[3]: [<Book: python book1>, <Book: python book2>, <Book: web1 book>]
+
+In [4]: books[0]
+Out[4]: <Book: python book1>
+
+
+
+In [7]: books[0]
+Out[7]: <Book: python book1>
+
+In [8]: b1 = books[0]
+
+In [10]: b1.authors
+Out[10]: <django.db.models.fields.related.ManyRelatedManager at 0x7f2e2890e150>
+
+
+In [11]: b1.authors.all()
+Out[11]: [<Author: ben>, <Author: Carl>, <Author: Dev>]
+
+
+vim show_book.html
+{% for book  in books %}
+<div>
+<h1>{{book.name}}</h1>
+{% for author in book.authors.all%}
+<li>{{author}}</li>
+{%endfor%}
+</div>
+{%endfor%}
+
+
+http://127.0.0.1:8000/blog/show_book/
+
+python book1
+
+ben
+Carl
+Dev
+
+python book2
+
+alen
+
+
+web1 book
+
+alen
+
+
+== 13.Django表单基础.mp4==
+
+
+django-admin startproject csvt07
+cd csvt07
+django-admin startapp blog
+
+
+
+有一个表单
+
+[05/Jun/2017 05:56:48]"GET /blog/register/ HTTP/1.1" 200 296
+{'name': u'carl'}
+
+
+
+
+如果没有数据
+
+http://127.0.0.1:8000/blog/register/
+
+Name:
+This field is required.
+
+
+
+
+
+
+看过视频后 再看 其实教程比较容易和有是曾相似的感觉呢
+
+
+
+
+
+
+
+
+==问题==
+The view didn't return an HttpResponse object. It returned None instead
+
+原因  果真是缩进问题
+verify the indentation of your code
+https://stackoverflow.com/questions/3085028/django-the-view-didnt-return-an-httpresponse-object
+
+
+
+
+
+Forbidden (403)
+CSRF verification failed. Request aborted.
+Help
+Reason given for failure:
+    CSRF token missing or incorrect.
+
+In general, this can occur when there is a genuine Cross Site Request Forgery, or when Django's CSRF mechanism has not been used correctly. For POST forms, you need to ensure:
+Your browser is accepting cookies.
+The view function passes a request to the template's render method.
+In the template, there is a {% csrf_token %} template tag inside each POST form that targets an internal URL.
+If you are not using CsrfViewMiddleware, then you must use csrf_protect on any views that use the csrf_token template tag, as well as those that accept the POST data.
+You're seeing the help section of this page because you have DEBUG = True in your Django settings file. Change that to False, and only the initial error message will be displayed.
+You can customize this page using the CSRF_FAILURE_VIEW setting.
+
+暂时的解决办法
+vim settings.py
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
+
+
+解决Django 提交表单时403错误：CSRF verification failed. Request aborted
+http://liubeitai.com/slove-the-problem-when-the-django-form-submitted-occur-403-error-csrf-verification-failed-request-aborted.html
+
+http://blog.csdn.net/feng88724/article/details/7221449
+
+
+
+
+
+
+
+
+
+以后有数据库的要记得  python manage.py migrate 或者导出吧 
+
+ 创建一个管理员用户
+python manage.py createsuperuser
+
+要注意 新老版本之间 db的不同之处 
+
+突然觉得看视频学习django 有点好玩呢 
+
+
+
+
+
+
+
+
+
+升级kali 2017 
+
+sudo apt-get install apt-transport-https 
+
+
+##这个完全重写，不是追加
+cat << EOF > /etc/apt/sources.list
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+EOF
+
+apt-get update
+apt-get dist-upgrade # get a coffee, or 10.
+reboot
+
+*****************
+
+
+
+http://blog.sina.com.cn/s/blog_7cd669720102vjaz.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

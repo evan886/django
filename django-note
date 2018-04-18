@@ -1,0 +1,1159 @@
+
+日常遇到知识点 20171016
+
+==models 相关==
+
+有个models.py
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('-pub_date',)
+
+    def __unicode__(self):
+        return self.title
+
+
+pub_date是发表的时间
+class Meta 内的设置则要指定以文章显示的顺序以 pub_date为依据，
+__unicode__  提供此类产生的数据项目   一个以文章标题作为显示的内容，增加操作过程中的 可读性(在管理界面或shell)，使用unicode 而不是str,让这个标题可以正确地支持中文标题
+
+
+db_table
+
+
+unique_together
+
+
+[http://python.usyiyi.cn/translate/django_182/ref/models/options.html 模型元选项]
+
+
+
+
+####*****************
+《Django企业开发实战》
+
+https://www.the5fire.com/django-practice-book-catalog-draft.html
+https://github.com/the5fire/django-practice-book
+
+
+django + css
+
+Django 中bootstrap的引用
+http://www.jianshu.com/p/ccf2ddc05530
+
+https://tutorial.djangogirls.org/zh/css/
+
+
+view-->tool windows -->terminal
+== chapter 1  入门==
+Django
+https://zh.wikipedia.org/wiki/Django
+http://www.ziqiangxuetang.com/django/django-intro.html
+
+===django安装=== 
+
+doc
+https://docs.djangoproject.com/en/1.8/releases/1.8/
+
+
+*各种发行版本
+
+FreeBSD
+There are two options:
+To add the package: pkg install py-django
+To install the port: cd /usr/ports/www/py-django/ && make install clean
+For recent changes ​http://www.freshports.org/www/py-django/
+
+https://code.djangoproject.com/wiki/Distributions
+sudo pkg install mysql57-server
+
+
+也可以源码 下载  
+
+https://www.djangoproject.com/download/
+fetch https://www.djangoproject.com/m/releases/1.8/Django-1.8.18.tar.gz
+tar xvf Django-1.8.18.tar.gz &&	cd Django-1.8.18  && 	python setup.py install
+
+#uninstall 
+ pip uninstall Django
+
+
+mysql 
+This is the mysql CLIENT without the server.
+for complete server and client, please install databases/mysql57-server
+
+* * * * * * * * * * * * * * * * * * * * * * * *
+Message from mysql57-server-5.7.17_4:
+*****************************************************************************
+
+Remember to run mysql_upgrade the first time you start the MySQL server
+after an upgrade from an earlier version.
+
+Initial password for first time use of MySQL is saved in $HOME/.mysql_secret
+ie. when you want to use "mysql -u root -p" first you should see password
+in /root/.mysql_secret
+
+MySQL57 has a default %%ETCDIR%%/my.cnf,
+remember to replace it wit your own
+or set `mysql_optfile="$YOUR_CNF_FILE` in rc.conf
+
+ You must reset your password using ALTER USER statement before executing this statement.
+
+安装完mysql 之后，登陆以后，不管运行任何命令，总是提示这个
+
+step 1: SET PASSWORD = PASSWORD('__love$u');
+
+step 2: ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;
+
+step 3: flush privileges;
+
+完成以上三步退出再登，使用新设置的密码就行了，以上除了红色的自己修改成新密码外，其他原样输入即可
+
+参考1: https://dev.mysql.com/doc/refman/5.6/en/alter-user.html
+
+参考2: http://dev.mysql.com/doc/refman/5.7/en/password-expiration-policy.html
+
+参考3: http://stackoverflow.com/questions/33467337/reset-mysql-root-password-using-alter-user-statement-after-install-on-mac
+
+
+
+
+
+
+
+https://docs.djangoproject.com/en/1.8/topics/install/#installing-official-release
+
+#https://www.djangoproject.com/download/
+sudo apt-get install python-pip
+
+====1 pip 安装====
+#来个LTS的 1.8 就这个了 2017.03.22pm
+sudo  pip install Django
+sudo pip install Django==1.8 或者 pip install Django==1.7.6
+
+运行下面的命令来查看你的Django版本号 还是这个比较好用 爽
+python -c "import django; print(django.get_version())"
+
+#kali 2016  这个太新了 不要 
+In [1]: import django
+
+In [11]: django.VERSION
+Out[11]: (1, 8, 0, 'final', 0)
+
+====2 easy_install 安装====
+安装 setuptools
+yum install setuptools
+
+完成之后，就可以使用 easy_install 命令安装 django
+easy_install django
+
+==== 注意====
+我们会遇到这样的情况，有的项目需要 Django 1.5, 有的项目需要 Django 1.8，每个项目依赖不同，但是还要运行在同一个电脑或服务器上，应该怎么办呢？ 
+
+用 virtualenv 可以做到！参见 Python 三大神器第二部分：http://www.ziqiangxuetang.com/python/pip-virtualenv-fabric.html
+
+
+ mvc
+
+http://djangobook.py3k.cn/chapter01/
+
+
+Django-admin-bootstrap
+https://wiki.linuxchina.net/index.php?title=Django-admin-bootstrap
+
+== chapter1  Writing your first Django app, part 1==
+
+=== 创建一个项目 ===
+/usr/local/bin/django-admin.py
+
+在当前目录创建一个 mysite 目录
+django-admin.py  startproject mysite
+sudo apt install tree -y 
+evan@evanpc:~/python/django$ tree mysite/
+mysite/
+├── manage.py
+└── mysite
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+models.py 文件主要用一个 Python 类来描述数据表。称为 模型(model) 。 运用这个类,你可以通过简单的 Python 的代码来创建、检索、更新、删除 数据库中的记录而无需写一条又一条的 SQL 语句。
+
+view.py 文件的 latest_books() 函数中包含了该页的业务层逻辑。这个函数叫做 视图(view) 。
+
+urls.py 指出了什么样的 URL 调用什么的视图,在这个例子中 /latest/ URL 将会调用 latest_books() 这个函数
+
+latest_books.html 是 html 模板,它描述了这个页面的设计是如何的。
+
+这些文件是：
+
+外层的mysite/根目录仅仅是项目的一个容器。它的命名对Django无关紧要；你可以把它重新命名为任何你喜欢的名字。
+manage.py：一个命令行工具，可以使你用多种方式对Django项目进行交互。 你可以在django-admin和manage.py中读到关于manage.py的所有细节。
+内层的mysite/目录是你的项目的真正的Python包。它是你导入任何东西时将需要使用的Python包的名字（例如 mysite.urls）。
+mysite/__init__.py：一个空文件，它告诉Python这个目录应该被看做一个Python包。 （如果你是一个Python初学者，关于包的更多内容请阅读Python的官方文档）。
+mysite/settings.py：该Django 项目的设置/配置。Django 设置 将告诉你这些设置如何工作。
+mysite/urls.py：该Django项目的URL声明；你的Django站点的“目录”。 你可以在URL 转发器 中阅读到关于URL的更多内容。
+mysite/wsgi.py：用于你的项目的与WSGI兼容的Web服务器入口。 更多细节请参见如何利用WSGI进行部署。
+
+ __init__.py :让 Python 把该目录当成一个开发包 (即一组模块)所需的文件。
+ manage.py :一种命令行工具,可让你以多种方式与该 Django 项目进行交互。
+ settings.py :该 Django 项目的设置或配置。
+ urls.py :该 Django 项目的 URL 声明,即 Django 所支撑站点的内容列表
+
+==== 数据库的建立= ===
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+http://www.cnblogs.com/wendoudou/p/mysql.html
+
+https://docs.djangoproject.com/en/1.8/ref/databases/#mysql-notes
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'djangodb',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+    }
+}
+
+没报错则成功！
+evan@evanpc:~/python/django/mysite$ python manage.py shell
+Python 2.7.13 (default, Jan 19 2017, 14:48:08) 
+In [1]: from django.db import connection
+In [2]:  cursor = connection.cursor()
+
+===== 开发服务器=====
+进入外层 mysite 目录并运行 python manage.py runserver
+
+evan@evanpc:~/python/django$ cd mysite/
+evan@evanpc:~/python/django/mysite$ python manage.py runserver
+Performing system checks...
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+Django version 1.10.6, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+尽管对于开发来说,这个开发服务器非常得棒,但一定要打消在产品级环境中使用该服务器 的念头。在同一时间,该服务器只能可靠地处理一次单个请求,并且没有进行任何类型的安 全审计。发布站点前,请参阅第 20 章了解如何部署 Django 
+
+更改主机或端口
+默认情况下, runserver 命令在 8000 端口启动开发服务器,且只监听本机连接。要想要 更改服务器端口的话,可将端口作为命令行参数传入: python manage.py runserver 8080
+还可以改变服务器监听的 IP 地址。要和其他开发人员共享同一开发站点的话,该功能特别 有用。下面的命令:
+python manage.py runserver 0.0.0.0:8080
+
+=== 创建模型 ===
+项目 vs. 应用
+项目和应用之间有什么不同？ 应用是一个Web应用程序，它完成具体的事项 —— 比如一个博客系统、一个存储公共档案的数据库或者一个简单的投票应用。 项目是一个特定网站中相关配置和应用的集合。一个项目可以包含多个应用。一个应用可以运用到多个项目中去。
+
+你的应用可以放在Python path上的任何位置。在本教程中，我们将在你的manage.py文件同级目录创建我们的投票应用，以便可以将它作为顶层模块导入，而不是mysite的子模块。
+确保你在与manage.py相同的目录下，并且键入以下命令来创建你的应用： 
+$ python manage.py startapp polls
+
+
+evan@evanpc:~/python/django/mysite$ tree  polls/
+polls/
+├── admin.py
+├── __init__.py
+├── migrations
+│   └── __init__.py
+├── models.py
+├── tests.py
+└── views.py
+
+===激活模型=== 
+## pro
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+
+django/mysite$ python manage.py makemigrations polls
+Migrations for 'polls':
+  0001_initial.py:
+    - Create model Choice
+    - Create model Question
+    - Add field question to choice
+    
+一个命令可以运行这些迁移文件并自动管理你的数据库模式 —— 它叫做migrate，我们一会儿会用到它 —— 但是首先，让我们看一下迁移行为将会执行哪些SQL语句。sqlmigrate命令接收迁移文件的名字并返回它们的SQL语句：
+
+$ python manage.py sqlmigrate polls 0001
+
+sqlmigrate命令并不会在你的数据库上真正运行迁移文件 —— 它只是把Django 认为需要的SQL打印在屏幕上以让你能够看到。 这对于检查Django将要进行的数据库操作或者你的数据库管理员需要这些SQL脚本是非常有用的。
+
+如果有兴趣，你还可以运行python manage.py check；它会检查你的项目中的模型是否存在问题，而不用执行迁移或者接触数据库。
+
+现在，再次运行migrate以在你的数据库中创建模型所对应的表：
+python manage.py migrate
+
+
+修改你的模型（在models.py文件中）。
+运行python manage.py makemigrations ，为这些修改创建迁移文件
+运行python manage.py migrate ，将这些改变更新到数据库中。
+
+阅读django-admin 的文档来了解manage.py 工具能做的所有事情。
+http://python.usyiyi.cn/translate/django_182/ref/django-admin.html
+
+	    
+===玩转API===
+
+http://python.usyiyi.cn/translate/django_182/intro/tutorial02.html
+不太明白
+
+
+python manage.py shell
+
+Once you’re in the shell, explore the database API:
+http://python.usyiyi.cn/translate/django_182/topics/db/queries.html
+
+>>> from polls.models import Question, Choice   # Import the model classes we just wrote.
+
+# No questions are in the system yet.
+>>> Question.objects.all()
+[]
+
+# Create a new Question.
+# Support for time zones is enabled in the default settings file, so
+# Django expects a datetime with tzinfo for pub_date. Use timezone.now()
+# instead of datetime.datetime.now() and it will do the right thing.
+>>> from django.utils import timezone
+>>> q = Question(question_text="What's new?", pub_date=timezone.now())
+
+# Save the object into the database. You have to call save() explicitly.
+>>> q.save()
+
+# Now it has an ID. Note that this might say "1L" instead of "1", depending
+# on which database you're using. That's no biggie; it just means your
+# database backend prefers to return integers as Python long integer
+# objects.
+>>> q.id
+1
+
+# Access model field values via Python attributes.
+>>> q.question_text
+"What's new?"
+>>> q.pub_date
+datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=<UTC>)
+
+# Change values by changing the attributes, then calling save().
+>>> q.question_text = "What's up?"
+>>> q.save()
+
+# objects.all() displays all the questions in the database.
+>>> Question.objects.all()
+[<Question: Question object>]
+
+
+
+
+
+== chapter2 编写你的第一个Django应用，第2部分 ==
+=== 创建一个管理员用户===
+python manage.py createsuperuser
+
+=== 启动开发服务器===
+ python manage.py runserver 0.0.0.0:80  # or
+sudo python manage.py runserver 192.168.1.158:80
+
+http://192.168.1.158/admin/
+===进入管理站点===
+你将看到几类可编辑的内容：groups和users。 它们是由django.contrib.auth提供的，这个认证框架集成在Django中。
+
+=== 让poll应用在管理站点中可编辑===
+只需要做一件事：我们需要告诉管理站点Question 对象要有一个管理界面。 要做这件事，需要打开polls/admin.py文件，把它编辑成这样：
+polls/admin.py
+
+from django.contrib import admin
+from .models import Question
+admin.site.register(Question)
+
+
+==== 探索管理站点的功能====
+
+
+=== 自定义管理表单===
+
+你没有写多少代码，却得到了这一切。 只需使用admin.site.register(Question)注册Question模型，Django就能构造一个默认的表单表示。通常，你会想要自定义管理界面中表单的外观和功能。 你可以通过在注册对象的时候告知Django一些你想要的选项来完成。
+
+让我们通过对编辑表单上的字段重新排序来看一下它是如何工作的。 将admin.site.register(Question)行替换成：
+polls/admin.py
+
+from django.contrib import admin
+
+from .models import Question
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['pub_date', 'question_text']
+
+admin.site.register(Question, QuestionAdmin)
+
+无论何时，当你需要修改一个对象的管理选项的话，就按照这样的步骤来做：创建一个模型管理对象（class），然后把该对象（class名）作为第二个参数传入admin.site.register()。
+
+上面那特定的更改，使得“Publication date”字段排在“Question”字段前面：
+
+
+===添加关联对象==
+值得一看哦
+
+===自定义管理界面中的变更列表===
+
+===自定义管理站点的外观===
+http://python.usyiyi.cn/translate/django_182/intro/tutorial02.html
+
+
+
+
+
+
+== chapter3 编写你的第一个Django应用，第3部分=
+
+http://python.usyiyi.cn/translate/django_182/intro/tutorial03.html
+
+Django使用叫做‘URLconfs’的配置来为URL匹配视图。 一个URLconf负责使用正则表达式将URL模式匹配到视图。
+
+本教程提供URLconfs使用过程中的基本指令，更多信息请参考django.core.urlresolvers。
+http://python.usyiyi.cn/translate/django_182/ref/urlresolvers.html#module-django.core.urlresolvers
+
+
+
+=== 编写你的第一个视图 ===
+
+
+让我们来编写第一个视图。 打开polls/views.py文件并将以下Python代码写入：
+polls/views.py
+
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
+这可能是Django中最简单的视图。 为了能够调用这个视图，我们需要将这个视图映射到URL上 —— 利用一个URLconf。
+
+为了在投票应用目录内部创建URLconf，需要创建一个urls.py文件。你的应用的目录现在看起来应该像这样：
+
+polls/
+    __init__.py
+    admin.py
+    models.py
+    tests.py
+    urls.py
+    views.py
+
+在polls/urls.py文件中键入如下代码：
+polls/urls.py
+
+from django.conf.urls import url
+
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+]
+
+下一步，让主URLconf可以链接到polls.urls模块。在mysite/urls.py中插入一个include()：
+mysite/urls.py
+
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^polls/', include('polls.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+现在我们已经将一个index视图关联到URLconf中。在你的浏览器中浏览 http://localhost:8000/polls/ , 你会看到 “Hello, world. You’re at the polls index.”, 正如你在index 视图中定义的那样.
+
+
+==== url() 参数：regex====
+====url() 参数：view====
+====url() 参数：name====
+
+===编写更多的视图 ===
+
+多看一下 不错不错
+
+#today is ok  20170419pm
+http://192.168.1.158/polls/34/vote/
+
+===编写拥有实际功能的视图===
+
+here
+
+
+
+
+=== 将 URL 映射到视图 ===
+
+
+
+
+django学习感想
+昨天视图相关的看不懂，还各自出错
+今天再次重新详细看了一下  终于明白了很多
+
+
+
+
+
+
+django 后台中文界面
+在setting.py
+#LANGUAGE_CODE = 'en-us'
+改为
+LANGUAGE_CODE = 'zh-hans'
+
+
+让 DJANGO 的 ADMIN 界面显示中文
+https://www.huangwenchao.com.cn/2014/02/django-tip-2.html
+
+
+
+
+
+
+== note from  runoob   ==
+== Django 创建第一个项目==
+
+=== Django 管理工具 ===
+
+evan@evanpc:~/python/django/mysite$ tree 
+.
+├── manage.py    一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互
+├── mysite
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── settings.py
+│   ├── settings.py~
+│   ├── settings.pyc
+│   ├── settings.pyy
+│   ├── settings.pyY
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   ├── wsgi.py
+│   └── wsgi.pyc
+
+目录说明：
+ manage.py: 一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互。
+__init__.py: 一个空文件，告诉 Python 该目录是一个 Python 包。
+settings.py: 该 Django 项目的设置/配置。
+urls.py: 该 Django 项目的 URL 声明; 一份由 Django 驱动的网站"目录"。
+wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。
+
+
+=== 视图和 URL 配置===
+
+
+
+==************************
+== note from 自强学堂 start ==
+
+==Django 简介==
+除了 urls.py 和settings.py 其实都是属于各自app的配置
+
+
+http://www.ziqiangxuetang.com/django/django-intro.html
+
+urls.py
+网址入口，关联到对应的views.py中的一个函数（或者generic类），访问网址就对应一个函数。
+
+views.py
+处理用户发出的请求，从urls.py中对应过来, 通过渲染templates中的网页可以将显示内容，比如登陆后的用户名，用户请求的数据，输出到网页。
+
+models.py
+与数据库操作相关，存入或读取数据时用到这个，当然用不到数据库的时候 你可以不使用。
+
+forms.py
+表单，用户在浏览器上输入数据提交，对数据的验证工作以及输入框的生成等工作，当然你也可以不使用。
+
+templates 文件夹
+views.py 中的函数渲染templates中的Html模板，得到动态内容的网页，当然可以用缓存来提高速度。
+
+admin.py
+后台，可以用很少量的代码就拥有一个强大的后台。
+
+settings.py
+Django 的设置，配置文件，比如 DEBUG 的开关，静态文件的位置等。
+
+
+==Django 基本命令==
+
+
+清空数据库
+ python manage.py flush
+
+
+Django 项目环境终端
+ python manage.py shell
+
+数据库命令行
+ python manage.py dbshell
+
+help
+python manage.py
+
+
+
+
+
+on the zqxt_views dir
+
+
+
+
+
+==Django 视图与网址==
+
+20190929pm
+
+注意 很多时候有中文的要注意哦
+
+Non-ASCII character '\xe6' in file
+
+解决办法   #-*- coding:utf-8 -*-
+
+
+
+
+==Django 视图与网址进阶==
+
+20170929pm
+
+
+#再生成 一个项目
+django-admin.py startproject zqxt_views
+cd zqxt_views
+python manage.py startapp calc
+
+
+注：request.GET 类似于一个字典，更好的办法是用 request.GET.get('a', 0) 当没有传递 a 的时候默认 a 为 0
+
+
+http://192.168.10.225/add/?a=4&b=5
+
+2. 采用 /add/3/4/ 这样的网址的方式
+
+
+#突然不太明白这个了  特别是name  是views 中的 function 各么  为什么 有些地方不用呢
+urlpatterns = [
+    url(r'^add/$',calc_views.add, name='add'),
+    url(r'^add/(\d+)/(\d+)/$', calc_views.add2, name='add2'),
+    url(r'^admin/', admin.site.urls),
+]
+
+http://192.168.10.225/add/4/5/
+
+
+==Django URL name详解==
+
+第二次 20171012pm
+http://www.ziqiangxuetang.com/django/django-url-name.html
+
+
+everse 接收 url 中的 name 作为第一个参数，我们在代码中就可以通过 reverse() 来获取对应的网址（这个网址可以用来跳转，也可以用来计算相关页面的地址），只要对应的 url 的name不改，就不用改代码中的网址。
+
+在网页模板中也是一样，可以很方便的使用。
+
+不带参数的：
+{% url 'name' %}
+带参数的：参数可以是变量名
+{% url 'name' 参数 %}
+
+例如：
+<a href="{% url 'add2' 4 5 %}">link</a>
+
+上面的代码渲染成最终的页面是
+
+<a href="/add/4/5/">link</a>
+
+这样就可以通过 {% url 'add2' 4 5 %} 获取到对应的网址 /add/4/5/
+
+
+
+
+==Django 模板==
+http://www.ziqiangxuetang.com/django/django-template.html
+
+不过还是强调一点，一点要动手敲代码！不要偷懒哦，动手才能学到真东西。
+
+1. 创建一个 zqxt_tmpl 项目，和一个 名称为 learn 的应用，并且
+
+django-admin.py startproject zqxt_tmpl
+cd zqxt_tmpl
+python manage.py startapp learn
+
+2. 把 learn 加入到 settings.INSTALLED_APPS中
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'learn',
+)
+
+3. 打开 learn/views.py 写一个首页的视图
+
+from django.shortcuts import render
+
+
+def home(request):
+    return render(request, 'home.html')
+
+4. 在 learn目录下新建一个 templates 文件夹，里面新建一个 home.html
+
+默认配置下，Django 的模板系统会自动找到app下面的templates文件夹中的模板文件。
+
+
+
+
+模板补充知识：
+
+网站模板的设计，一般的，我们做网站有一些通用的部分，比如 导航，底部，访问统计代码等等
+
+注意：模板一般放在app下的templates中，Django会自动去这个文件夹中找。但 假如我们每个app的templates中都有一个 index.html，当我们在views.py中使用的时候，直接写一个 render(request, 'index.html')，Django 能不能找到当前 app 的 templates 文件夹中的 index.html 文件夹呢?（答案是不一定能，有可能找错）
+
+Django 模板查找机制： Django 查找模板的过程是在每个 app 的 templates 文件夹中找（而不只是当前 app 中的代码只在当前的 app 的 templates 文件夹中找）。各个 app 的 templates 形成一个文件夹列表，Django 遍历这个列表，一个个文件夹进行查找，当在某一个文件夹找到的时候就停止，所有的都遍历完了还找不到指定的模板的时候就是 Template Not Found （过程类似于Python找包）。这样设计有利当然也有弊，有利是的地方是一个app可以用另一个app的模板文件，弊是有可能会找错了。所以我们使用的时候在 templates 中建立一个 app 同名的文件夹，这样就好了。
+
+这就需要把每个app中的 templates 文件夹中再建一个 app 的名称，仅和该app相关的模板放在 app/templates/app/ 目录下面，
+
+
+==Django 模板进阶==
+http://www.ziqiangxuetang.com/django/django-template2.html
+https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
+
+实例二，讲解了基本的 for 循环 和 List内容的显示
+
+这个有问题 是因为 自己写错单词了  tutorialList
+
+
+简单总结一下：一般的变量之类的用 {{ }}（变量），功能类的，比如循环，条件判断是用 {%  %}（标签）
+
+在模板中取字典的键是用点info_dict.site，而不是Python中的 info_dict['site']，效果如下：
+
+
+
+这个没成功哦  20170426
+还可以这样遍历字典：
+
+{% for key, value in info_dict.items %}
+    {{ key }}: {{ value }}
+{% endfor %}
+
+其实就是遍历这样一个 List:  [('content', u'自强学堂'), ('site', u'各种IT技术教程')]
+
+
+
+for循环中还有很多有用的东西，如下：
+变量	描述
+forloop.counter	索引从 1 开始算
+forloop.counter0	索引从 0 开始算
+forloop.revcounter	索引从最大长度到 1
+forloop.revcounter0	索引从最大长度到 0
+forloop.first	当遍历的元素为第一项时为真
+forloop.last	当遍历的元素为最后一项时为真
+forloop.parentloop
+
+用在嵌套的 for 循环中，
+
+获取上一层 for 循环的 forloop
+
+
+当列表中可能为空值时用 for  empty
+<ul>
+{% for athlete in athlete_list %}
+    <li>{{ athlete.name }}</li>
+{% empty %}
+    <li>抱歉，列表为空</li>
+{% endfor %}
+</ul>
+
+实例五，模板上得到视图对应的网址：
+还可以使用 as 语句将内容取别名（相当于定义一个变量），多次使用（但视图名称到网址转换只进行了一次）
+
+{% url 'some-url-name' arg arg2 as the_url %}
+
+<a href="{{ the_url }}">链接到：{{ the_url }}</a>
+
+
+实例六，模板中的逻辑操作：
+
+6.1、   ==, !=, >=, <=, >, < 这些比较都可以在模板中使用
+
+
+
+实例七，模板中 获取当前网址，当前用户等：
+
+完整的内容参考官方文档
+https://docs.djangoproject.com/en/1.8/ref/templates/builtins/
+
+
+http://www.ziqiangxuetang.com/django/django-template2.html
+
+
+
+==Django 模型（数据库）==
+http://code.ziqiangxuetang.com/django/django-models.html
+https://docs.djangoproject.com/en/1.8/topics/db/models/
+
+20170531 再次
+看了视频再回来看这个教程就明白了很多了，不会像以前开始有点模
+
+
+
+我们来同步一下数据库
+
+注意：Django 1.7 及以上的版本需要用以下命令
+python manage.py makemigrations
+python manage.py migrate
+
+
+新建一个对象的方法有以下几种：
+
+    Person.objects.create(name=name,age=age)
+
+    p = Person(name="WZ", age=23)
+
+    p.save()
+
+    p = Person(name="TWZ")
+
+    p.age = 23
+
+    p.save()
+
+    Person.objects.get_or_create(name="WZT", age=23)
+
+    这种方法是防止重复很好的方法，但是速度要相对慢些，返回一个元组，第一个为Person对象，第二个为True或False, 新建时返回的是True, 已经存在时返回False.
+
+
+获取对象有以下方法：
+
+    Person.objects.all()
+
+    Person.objects.all()[:10] 切片操作，获取10个人，不支持负索引，切片可以节约内存
+
+    Person.objects.get(name=name)
+
+
+    get是用来获取一个对象的，如果需要获取满足条件的一些人，就要用到filter
+
+    Person.objects.filter(name="abc") # 等于Person.objects.filter(name__exact="abc") 名称严格等于 "abc" 的人
+
+    Person.objects.filter(name__iexact="abc") # 名称为 abc 但是不区分大小写，可以找到 ABC, Abc, aBC，这些都符合条件
+
+
+    Person.objects.filter(name__contains="abc") # 名称中包含 "abc"的人
+
+    Person.objects.filter(name__icontains="abc") #名称中包含 "abc"，且abc不区分大小写
+
+
+    Person.objects.filter(name__regex="^abc") # 正则表达式查询
+
+    Person.objects.filter(name__iregex="^abc")# 正则表达式不区分大小写
+
+
+    filter是找出满足条件的，当然也有排除符合某条件的
+
+    Person.objects.exclude(name__contains="WZ") # 排除包含 WZ 的Person对象
+
+    Person.objects.filter(name__contains="abc").exclude(age=23) # 找出名称含有abc, 但是排除年龄是23岁的
+
+
+参考文档：
+
+Django models 官方教程: https://docs.djangoproject.com/en/1.8/topics/db/models/
+
+Fields相关官方文档：https://docs.djangoproject.com/en/dev/ref/models/fields/
+
+
+
+
+
+Django 自定义Field
+http://www.ziqiangxuetang.com/django/django-custom-field.html
+
+写在models.py 还没看呢 有空要回头看一下哦
+
+
+
+Django 数据表更改
+http://www.ziqiangxuetang.com/django/django-schema-migration.html
+
+
+
+Django 1.7.x 和后来的版本：
+Django 1.7.x 及以后的版本集成了 South 的功能，在修改models.py了后运行：
+
+python manage.py makemigrations
+python manage.py migrate
+
+这两行命令就会对我们的models.py 进行检测，自动发现需要更改的，应用到数据库中去
+
+
+#不错哦 还可以 恢复到随便一个以前的版本
+Django 的第三方 app South 就是专门做数据库表结构自动迁移工作，Jacob Kaplan-Moss 曾做过一次调查，South 名列最受欢迎的第三方 app。事实上，它现在已经俨然成为 Django 事实上的数据库表迁移标准，很多第三方 app 都会带 South migrations 脚本，Django 1.7 中集成了 South 的功能。
+
+1, 安装South
+
+(sudo) pip install South
+
+
+2. 使用方法
+
+一个好的程序使用起来必定是简单的，South和它的宗旨一样，使用简单。只需要简单几步，针对已经建好model和创建完表的应用。
+
+
+把south加入到settings.py中的INSTALL_APPS中
+
+# Application definition
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'blog',
+    'south',
+)
+
+修改好后运行一次 python manage.py syncdb，Django会新建一个 south_migrationhistory 表，用来记录数据表更改(Migration)的历史纪录。
+
+
+
+
+这两个还没学 20170503
+
+=== Django QuerySet API ===
+http://www.ziqiangxuetang.com/django/django-queryset-api.html
+
+
+Django QuerySet 进阶
+http://www.ziqiangxuetang.com/django/django-queryset-advance.html
+
+
+
+==Django 后台==
+http://www.ziqiangxuetang.com/django/django-admin.html
+
+后面很多还没看 有空再好好学习一下哦 20170503pm
+
+
+与后台相关文件：每个app中的 admin.py 文件与后台相关。
+
+
+下面示例是做一个后台添加博客文章的例子：
+一，新建一个 名称为 zqxt_admin 的项目
+django-admin.py startproject zqxt_admin
+
+二，新建一个 叫做 blog 的app
+# 进入 zqxt_admin 文件夹
+cd zqxt_admin
+# 创建 blog 这个 app
+python manage.py startapp blog
+
+
+
+
+
+
+
+提示：INSTALLED_APPS 是一个元组，每次加入新的app的时候，在后面都加一个逗号，这是一个好习惯
+
+
+
+创建管理员
+python manage.py createsuperuser
+
+admin database is dj
+
+所以推荐定义 Model 的时候 写一个 __unicode__ 函数(或 __str__函数)
+
+
+
+
+
+技能提升：如何兼容python2.x和python3.x呢？
+
+python_2_unicode_compatible 会自动做一些处理去适应python不同的版本，本例中的 unicode_literals 可以让python2.x 也像 python3 那个处理 unicode 字符，以便有更好地兼容性。
+
+
+
+Django 1.7 及以上用以下命令来同步数据库表的更改
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+
+
+
+
+
+==Django 表单==
+
+不知为什么 不成功 有空再看看
+http://www.ziqiangxuetang.com/django/django-forms.html
+
+
+
+第二节，使用 Django 的 表单 (forms)
+#20170510
+
+
+
+
+
+
+mkidr uapp/templates
+
+
+
+#urls.py 要写成这 样才行 但是好像 没有算出结果来  没显示
+url(r'^add/$','blog.views.index', name='index'),
+
+
+view #防止乱码
+
+#-*- coding:utf-8 -*-
+import  sys
+from django.shortcuts import render
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
+
+
+
+
+
+
+
+
+
+
+文章有中文时乱码
+问了一下大家 再自己google  一下  尝试一下 手工 set utf8 cratedatabase is ok now
+
+CREATE DATABASE my_database CHARACTER SET utf8;
+
+CREATE DATABASE djforms CHARACTER SET utf8;
+
+
+http://stackoverflow.com/questions/6681831/setting-django-mysql-site-to-use-utf-8
+
+
+
+
+
+/usr/local/lib/python2.7/dist-packages/django/db/backends/mysql/base.py:124: Warning: Incorrect string value: '\xE6\xAA\xB6\xE5\xB9\xB2...' for column 'content' at row 1
+  return self.cursor.execute(query, args)
+
+
+
+
+
+Django 国际化
+http://www.ziqiangxuetang.com/django/django-internationalization.html
+
+
+
+
+
+==Django 配置==
+http://www.ziqiangxuetang.com/django/django-settings.html
+
+ALLOWED_HOSTS = ['*.besttome.com','www.ziqiangxuetang.com']
+ALLOWED_HOSTS 允许你设置哪些域名可以访问，即使在 Apache 或 Nginx 等中绑定了，这里不允许的话，也是不能访问的。
+当 DEBUG=False 时，这个为必填项，如果不想输入，可以用 ALLOW_HOSTS = ['*'] 来允许所有的。
+
+
+== Django 静态文件 ==
+
+
+
+== Django 部署(Apache)==
+
+跳过 暂时不看
+
+== Django 部署(nginx)==
+
+跳过 暂时不看
+
+
+
+
+
+
+==只用django 数据库  Django ORM ==
+pass  20100603
+
+
+
+
+
+
+
+
+正则表达式 http://www.ziqiangxuetang.com/regexp/regexp-tutorial.html
+Python正则表达式。 http://www.ziqiangxuetang.com/python/python-reg-expressions.html
+
+
+
+
+
+
+
+
+== note from 自强学堂 the end ==
+
+
+如果对了解 Python 搜索路径值感兴趣,可以启动 Python 交互式解释程序,输入 import sys ,接着输入 print sys.path 。
+
+
+https://docs.djangoproject.com/en/1.8/
+http://python.usyiyi.cn/django/topics/forms/index.html
+
+http://djangobook.py3k.cn/2.0/chapter02/
+
+
+
+http://www.ziqiangxuetang.com/django/django-tutorial.html
+
+forms 我直接用bootstrap的，很简单，就一句话
+{% bootstrap_form form layout='horizontal' %}
+
+它自动帮你解释成html的语句
+
+
+
+
+Python Web 框架，第 1 部分: 使用 Django 和 Python 开发 Web 站点
+
+https://www.ibm.com/developerworks/cn/linux/l-django/index.html#ibm-pcon
+
+
+
+
+django web 开发指南 chapter 2  P64
+
+CSS - 让它更好看
+https://tutorial.djangogirls.org/zh/css/
+
+Django Nginx+uwsgi 安装配置
+http://www.runoob.com/django/django-nginx-uwsgi.html

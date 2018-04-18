@@ -1,0 +1,838 @@
+
+原作者网站
+http://hophd.com
+
+/home/evan/python/django/src
+
+==chapter 1 ==
+源码下载
+http://pan.baidu.com/s/1pLIuFXp
+
+apt install python-pip  virtualenv
+
+==chapter 2  mblog ==
+
+django-admin.py startproject mblog
+cd  mblog
+django-admin.py  startapp mainsite  # INSTLLED_APPS 里面的对应 上
+
+sudo python manage.py runserver 0.0.0.0:80
+
+TIME_ZONE='Asia/Shanghai' 
+LANGUAGE_COOD='zh-hans'
+LANGUAGE_COOD='zh-cn'
+
+or 
+sudo vim /usr/local/lib/python2.7/dist-packages/django/conf/global_settings.py
+
+
+mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'mblog',                      
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',                    
+        'PORT': '3306',                      
+    }
+}
+
+创建数据库和django间的中介文件
+python manage.py  makemigrations  mainsite 
+
+同步更新数据到数据库
+python manage.py  migrate 
+
+===2.2创建博客数据表===
+
+pip install pyz
+
+vi mainsite/models.py
+
+from django.db import models
+from  django.utils import timezone
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('-pub_date',)
+
+    def __unicode__(self):
+        return self.title
+
+
+
+让上面的模型生效
+python manage.py  makemigrations mainsite
+python manage.py migrate
+#不然报错如下 
+1146, "Table 'mblog.mainsite_post' doesn't exist"
+
+2.2.3 admin
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+vi mainsite/admin.py
+from django.contrib import admin
+from  .models import Post
+admin.site.register(Post)
+
+
+
+
+自定义显示方式
+
+vim  mainsite/admin.py
+#-*- coding:utf-8 -*-
+from django.contrib import admin
+from	.models	import Post
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title','slug','pub_date')
+
+admin.site.register(Post,PostAdmin)
+
+
+2.2.4 读取数据库中的内容
+dj把数据的存取和显示区分为 model template and view  分别对应到models.py  template dir and views.py 这些文件
+
+models.py 定义要存取的数据模型
+
+view 取出数据 或者 存进去等等程序逻辑
+template.py
+
+
+vim mainsite/views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Post
+
+def homepage(request):
+    posts = Post.objects.all()
+    post_lists = list()
+    for count, post in enumerate(posts):
+        post_lists.append("No.{}:".format(str(count)) + str(post) + "<br>")
+    return HttpResponse(post_lists)
+
+
+vi  mblog/urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+from mainsite.views import homepage
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'mblog.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', homepage),
+    #^ 表示字符串开头 $ 表示字符串结尾  …^$ 是指当用户浏览网址却没有加上任何字符串时 就去调用homepage function  
+
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+
+
+#这个把所有显示在首页 少用 但知道就行 
+ cat    mainsite/views.py
+
+
+def homepage(request):
+    posts = Post.objects.all()
+    post_lists = list()
+    for count, post in enumerate(posts):
+        post_lists.append("No.{}:".format(str(count)) + str(post) + "<br>")
+        post_lists.append("<small>" + str(post.body.encode('utf-8'))+"</small><br><br>")
+    return HttpResponse(post_lists)
+
+
+===2.3 网址对应与页面输出===
+
+project/mblog$ mkdir  templates
+
+
+vim  mblog/settings.py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+
+
+
+$ vi  mainsite/views.py
+from django.template.loader import get_template
+from django.shortcuts import render
+from django.http import HttpResponse
+from datetime import datetime
+from .models import Post
+
+def homepage(request):
+    template = get_template('index.html')
+    posts = Post.objects.all()
+    now = datetime.now()
+    html = template.render(locals()) 
+    return HttpResponse(html)
+
+
+问题 一开始老是提示什么  get_template 没定义 后来又说 template 又说没定义 ，但是后来manage.py shell 测试一下是可以 老想不明白时，刷新一下 居然就好了 哪来的呢果真许久自然好 ？
+
+
+vi templates/index.html
+
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      welcome my blog
+    </title>
+  </head>
+  <body>
+    <h1> welcome to my blog </h1>
+    <hr>
+    {{posts}}
+    <hr>
+    <h3> now is : {{ now }}</h3>
+  </body>
+</html>
+
+
+
+cat    templates/index.html 
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      welcome my blog
+    </title>
+  </head>
+  <body>
+    <h1> welcome to my blog </h1>
+    <hr>
+    {% for post in posts %}
+    <p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+        {{post.title}}
+    </p>
+    <p style='font-family:微软雅黑;font-size:10pt;letter-spacing:1pt;'>
+    {{post.body}}
+    </p>
+       {% endfor %}
+    <hr>
+    <h3> now is : {{ now }}</h3>
+  </body>
+</html>
+
+
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      welcome my blog
+    </title>
+  </head>
+  <body>
+    <h1> welcome to my blog </h1>
+    <hr>
+    {% for post in posts %}
+    <p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+     <a href='/post/{{post.slug}}'>{{ post.title }} </a> 
+    </p>
+       {% endfor %}
+    <hr>
+    <h3> now is : {{ now }}</h3>
+  </body>
+</html>
+
+
+
+2.3.2 urls.py
+
+ cat mblog/urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+from mainsite.views import homepage,showpost
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'mblog.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', homepage),
+    url(r'^post/(\w+)$', showpost),
+
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+
+
+cat mainsite/views.py
+from django.template.loader import get_template
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from datetime import datetime
+from .models import Post
+
+def homepage(request):
+    template = get_template('index.html')
+    posts = Post.objects.all()
+    now = datetime.now()
+    html = template.render(locals()) 
+    return HttpResponse(html)
+
+def showpost(request,slug):
+    template = get_template('post.html')
+    try:
+        post = Post.objects.get(slug=slug)
+        if post != None:
+            html = template.render(locals()) 
+            return HttpResponse(html)
+    except:
+        return redirect('/')
+
+
+cat templates/post.html 
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      欢迎光临我的博客
+    </title>
+  </head>
+  <body>
+	  <h1>{{post.title}}</h1>
+    <hr>
+    <p style='font-family:微软雅黑;font-size:14pt;font-weight:bold;'>
+      {{post.body}}'  
+    </p>
+    <hr>
+    <h3> <a href='/'>返回首页</h3>
+  </body>
+</html>
+
+
+
+2.3.3 共享模板
+
+p62
+
+变量两个大括号？ 单个 的呢
+
+
+不然有错
+{ % endblock %} -->{% endblock %}
+
+TemplateSyntaxError
+Exception Value:	
+Unclosed tag 'block'. Looking for one of: endblock 
+Exception Location:	/usr/local/lib/python2.7/dist-packages/django/template/debug.py in unclosed_block_tag, line 65
+Python Executable:	/usr/bin/python
+
+
+{ % endblock %} 注意 语句不能有空格
+
+python manage.py shell
+
+
+http://getbootstrap.com/docs/4.0/getting-started/download/
+还是建议用稳定的3.3 版本
+双击 copy
+
+2.4.2 图像文件的应用
+
+static 也在网站的文件夹中，位置和templates 是平行的
+
+
+2.4.3 主页显示文章摘要
+第一种 直接在数据库定义的时候，也就是在建立model的时候把摘要数据项目加进入 ，让在创建文章的时候就可以输入摘要
+第二种 根据文章的内容直接摘取前面固定字数的字符 并显示  如本节 p71
+
+
+2.4.4 文章的HTML内容处理
+
+2.4.5 markdown
+
+
+
+
+pip install django-markdown-deux
+pip freeze > requirements.txt
+
+add INSTALLED_APP
+'markdown_deux'
+
+
+Django-markdown使用实例
+http://yongyuan.name/blog/django-markdown.html
+http://www.cnblogs.com/cacique/archive/2012/10/07/2713703.html
+
+django 简易博客开发 1 安装、创建、配置、admin使用
+http://www.cnblogs.com/cacique/archive/2012/09/29/2707976.html
+
+chapter 3 让网站上线
+
+heroku  p89
+
+
+==chapter4  mvc --mtv==
+
+django-template
+http://www.runoob.com/django/django-template.html
+
+
+M-->model.py
+T-->templates
+V-->views.py (控制如何处理数据程序逻辑)
+
+
+4.2 module 简介
+
+django-admin startproject mynewsite
+cd mynewsite/
+python manage.py startapp  myapp
+
+tree  mynewsite/
+mynewsite/
+├── manage.py
+├── myapp
+│   ├── admin.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── mynewsite
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── settings.py
+│   ├── settings.pyc
+│   ├── urls.py
+│   └── wsgi.py
+├── static
+└── templates
+
+#CREATE DATABASE my_database CHARACTER SET utf8;
+
+python manage.py  makemigrations
+python manage.py  migrate
+
+
+
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+
+4.2.3 python shell 操作数表
+
+python manage.py shell
+In [1]: from myapp.models import Product
+In [2]: p = Product.objects.create(sku=0001,name='ebox',price=100,size='S')
+In [3]: p.save()
+exit()
+
+显示记录的内容  objects.all()
+In [4]: allp = Product.objects.all()
+
+In [5]: allp[0]
+Out[5]: <Product: Product object>
+
+
+====4.2.4 数据的查询与编辑 ====
+python manage.py shell
+
+在后台自己添加产品就行了
+没动手呢
+
+===4.3 view 简介===
+
+====4.3.1 httpresponse ====
+
+直接显示数据到网页，最简单就是 先到urls.py 设置一个网址的对应，然后在views.py  中编写一个func ,通过 httpresponse 传送出想要显示的
+数据。如果建立一个简单显示个人信息的网页，这个页面希望 放在 /about 路径 中，那么可以 在views.py 中编写一个about func
+
+
+====4.3.2 ===
+
+vews.py  有些代码不太明白 p 130
+
+
+vews.py  中
+#随便一个str作为形参就行了 其实
+def listing(r):
+
+记得自己在model  中添加少了的 qty 字段
+
+python manage.py  makemigrations
+You are trying to add a non-nullable field 'qty' to product without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now()
+>>> 0
+Migrations for 'myapp':
+  0004_product_qty.py:
+    - Add field qty to product
+
+
+
+===4.3.3 网址栏参数处理的方式 ===
+
+
+http://blog.csdn.net/qq_23348071/article/details/77164561
+
+这个教程有书本差不多呀 mblog
+http://blog.csdn.net/qq_23348071/article/details/77164561
+
+
+
+
+===4.4 template 简介===
+
+
+
+virtualenv
+https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000
+http://pythonguidecn.readthedocs.io/zh/latest/dev/virtualenvs.html
+
+
+
+
+Django i18n国际化
+http://www.cnblogs.com/oubo/archive/2012/04/05/2433690.html
+
+
+
+create database mblog DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+不然后面发现文章中文乱码
+
+
+==chapter 05 网址的对应和委派==
+
+5.1.2  p145  其实有些还不太明白
+
+5.1.3  验证RE 设计URL的正确性
+
+https://pythex.org
+
+未看明白
+
+==chapter 06 Template 深入探讨==
+
+新建django project的基本步骤
+
+
+django-admin startproject ch06www
+cd ch06www/
+python manage.py startapp  mysite
+
+# 1. 创建更改的文件
+python manage.py  makemigrations
+
+# 2. 将生成的py文件应用到数据库
+python manage.py  migrate
+
+
+#CREATE DATABASE ch06www CHARACTER SET utf8;
+
+
+
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+
+配置 settings.py
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'mysite',
+)
+
+
+
+TIME_ZONE='Asia/Shanghai'
+
+#这个有时会失效
+LANGUAGE_COOD='zh-hans'
+LANGUAGE_COOD='zh-cn'
+
+
+
+
+清空数据库
+python manage.py flush
+
+两对大括号为 要显示的变量
+大括号加上% 的是模板的控制命令
+
+以前看csvt时有哦 忘记了呢
+
+
+6.1.2 create templates file
+
+views.py
+from django.shortcuts import render
+from datetime import datetime
+from django.template.loader import get_template
+from django.http import HttpResponse
+
+
+def index(request):
+    template = get_template('index.html')
+    now = datetime.now()
+    html = template.render(locals())
+
+    return HttpResponse(html)
+
+
+urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+from  mysite.views import index
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'ch06www.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^$',index),
+
+    url(r'^admin/', include(admin.site.urls)),
+]
+
+
+templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+</head>
+<body>
+    <h2> hellow evan</h2>
+<hr>
+<em>
+    {{ now }}
+</em>
+
+</body>
+</html>
+
+
+6.1.3 在templates 文件 中使用现有的网页框架
+
+http://getbootstrap.com/docs/3.3/getting-started/#download
+
+
+
+6.1.4
+
+分享下面的嵌入
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c5ZGQoK16QM" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mOUYiBsccVc" frameborder="0" allowfullscreen></iframe>
+
+
+
+===6.1.5 在template 中使用static 文件===
+
+上次觉得很难看的 这次居然一看就明白了 哈哈
+static/images/logo.png
+
+代码一般正式情景放在 footer.html
+例子见ch07www
+
+<!-- footer.html (ch07www project) -->
+<hr>
+{% load staticfiles %}
+<img src="{% static "images/logo.png" %}" width=100>
+<em>Copyright 2017 <a href='http://linuxchina.net'>http://linuxchina.net</a>. All rights reserved.</em>
+
+
+
+==6.2 高级template 技巧 ==
+
+
+
+
+=chapter 7  models 与数据库=
+
+==7.1 网站与数据库==
+
+===7.2.2 ===
+
+
+又不太明白这个语法了  20170920
+{% include "header.html" %}
+{% block content %}{% endblock %}
+{% include "footer.html" %}
+
+==7.3 在django中使用mysql ==
+
+===7.3.1  install mysql on ubuntu ===
+
+apt-get update  && apt-get upgrade
+apt-get install mysql-server mysql-client
+mysql_secure_installation
+
+#安装python的mysql 驱动程序 mysql-python
+
+apt-get install python-dev libmysqlclient-dev
+pip install mysql-python
+
+配置好 settings.py mysql
+
+makemigrations   migrate
+
+
+
+
+===7.2 活用model 制作网站===
+
+====7.2.2 制作网站模板====
+
+
+其实 admin evan2240881
+登录不了 在后面直接 改密码就行了
+
+
+
+
+20170922 终于明白了 block  和共享模板什么 的，原来是 base.html 里面的 block是没内容在，别人 extends 他时，才自己填充哦
+ 果真多动手 才能明白得突然，当然  多看也是要的 ，要认真的看
+
+
+
+
+
+
+后台列表标题显示中文 models.py
+verbose_name
+是该对象的一个可读性更好的唯一名字:
+
+
+[http://www.cnblogs.com/walkerwang/archive/2011/04/28/2031298.html django Meta 选项]
+
+[http://python.usyiyi.cn/documents/django_182/ref/models/options.html 模型元选项]
+
+
+
+
+
+[http://www.cnblogs.com/xiaozhiqi/p/5851360.html Python自动化运维之27、Django(一)]
+        <!--<td><a href='{% "detail-url" p.id %}'> {{ p.nickname }}</a></td> -->
+
+
+http://python.usyiyi.cn/translate/django_182/intro/tutorial01.html
+
+
+
+[http://www.cnblogs.com/lhj588/archive/2012/05/24/2516040.html Django model字段类型清单]
+
+
+
+
+[http://www.runoob.com/django/django-model.html  Django 模型]
+
+
+Model field reference
+https://docs.djangoproject.com/en/1.8/ref/models/fields/
+
+
+Python Django 快速Web开发入门
+http://study.163.com/course/introduction.htm?courseId=320022#/courseDetail?tab=1
+
+python自动化运维开发
+http://study.163.com/course/courseMain.htm?courseId=1003686002
+
+手把手带你学Django实战-视频版-课程介绍
+https://www.the5fire.com/925.html
+
+
+[ 都说Djnago框架重，那就让哥用15行代码写个Django Web程序！]
+
+
+=== 7.3 use mysql on django ===
+
+[[Django 配置MySQL数据库]]
+
+apt install mysql-server mysql-client
+mysql_secure_installation
+
+
+
+apt-get install python-dev libmysqld-dev libmysqlclient-dev
+
+pip install mysql-python
+
+
+Django(Python)操作MySQL依赖第三方包，所以要先安装MySQL for Python。
+
+$ wget https://pypi.python.org/packages/source/M/MySQL-python/MySQL-python-1.2.5.zip
+$ unzip MySQL-python-1.2.5.zip
+$ sudo python setup.py install
+
+
+https://docs.djangoproject.com/en/1.11/ref/databases/#mysql-notes
+
+[http://dmyz.org/archives/110 DJANGO+MYSQL安装配置详解(LINUX)[更新为1.8.2版]]
+
+
+
+
+==chapter 8  HTML ==
+
+
+
+现在是ch07www 用户 密码不对
+
+登录后台用户有错 为什么 呢
+
+我用ch07的配置文件改一下就可以了 为什么 呢
+
+难道和今天安装的两个包有关系
+sudo pip install captcha
+
+ pip install django-recaptcha #我试过 不是这个
+
+
+ImportError: No module named captcha
+
+
+[http://code.ziqiangxuetang.com/html/html-forms.html HTML 表单]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5829076.html Python自动化运维之20、HTML]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5830033.html Python自动化运维之21、CSS]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5836665.html Python自动化运维之22、JavaScript]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5841037.html Python自动化运维之23、Dom]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5841500.html Python自动化运维之24、JQuery]
+
+[http://www.cnblogs.com/xiaozhiqi/p/5843998.html Python自动化运维之25、Ajax]
+
+
+django文档
+
+
+
+
+
+
+sys.argv
+
+sys.argv
+传递给Python脚本的命令行参数列表。argv[0]是脚本的名称（是否是完整的路径名这要取决于操作系统）。如果执行命令时解释器使用了-c命令行选项， argv [0]设置为字符串'-c'。如果无脚本名称传递给 Python 解释器， argv [0]是空字符串。
+
+
+execute_from_command_line(sys.argv)
+
+
+[http://blog.csdn.net/vivilorne/article/details/3863545 sys.argv[]用法]
+[http://usyiyi.cn/translate/python_278/library/sys.html sys — 系统相关的参数和函数]
+
+[http://djangosuit.com/ Django Suit]

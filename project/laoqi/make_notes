@@ -1,0 +1,126 @@
+passsrc 记录着自己手工成功了的代码　
+
+#+-------------------------------------------------------+
+#|     Chapter1            |
+#+-------------------------------------------------------+
+
+
+kali  django 1.8.18
+
+src
+https://github.com/qiwsir/DjangoPracticeProject.git
+
+django-admin startproject mysite
+cd myiste
+ python manage.py  startapp blog
+
+
+python manage.py  makemigrations
+python manage.py migrate  #Updates database schema.
+
+
+两个相同的命令
+python manage.py startapp blog
+django-admin startapp blog
+
+
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+
+1.3.3 显示文章标题
+python   manage.py  shell
+
+In [1]: from django.contrib.auth.models import User
+
+In [2]: from blog.models import BlogArticles
+
+In [3]: user = User.objects.get(username="admin")
+
+In [4]: user.username
+Out[4]: u'admin'
+
+In [5]: user.id
+Out[5]: 1
+
+In [6]: user.password
+Out[6]: u'pbkdf2_sha256$20000$e6hv9xY8rNxO$ZMhvTti+WXJSu6YzOtRsbaUSx6cxWzwjipSZDkCZk7I='
+
+In [7]: user.email
+Out[7]: u'evan886@gmail.com'
+
+In [8]: blogs =  BlogArticles.objects.all()
+
+In [9]: blogs
+Out[9]: [<BlogArticles: You raise me up >]
+
+In [12]:  for  blog in blogs:
+    ...:     print(blog.title)
+    ...:
+You raise me up
+
+url(r'(?P<article_id>\d)/$',
+
+python P
+
+https://zhidao.baidu.com/question/559412763.html
+
+教程】详解Python正则表达式之： (?P<name>…) named group 带命名的组
+https://www.crifan.com/detailed_explanation_about_python_regular_express_named_group/
+
+https://www.zhihu.com/question/27448499
+
+
+#+-------------------------------------------------------+
+#|     Chapter2           | 用户管理
+#+-------------------------------------------------------+
+2018年 02月 17日 星期六 12:43:37 CST
+
+http://192.168.201.95/static/xx.png
+
+2.2.1
+python  manage.py   startapp account
+
+In [2]: from account.forms import LoginForm
+
+In [3]: login_form  = LoginForm()
+
+
+In [4]: print(login_form)
+<tr><th><label for="id_username">Username:</label></th><td><input id="id_username" name="username" type="text" /></td></tr>
+<tr><th><label for="id_password">Password:</label></th><td><input id="id_password" name="password" type="password" /></td></tr>
+
+
+In [5]: dir(login_form)
+Out[5]: 
+['__class__',
+ '__delattr__
+
+
+as_p 
+as_url 
+as_table
+
+
+as_p()¶
+Form.as_p()¶
+as_p() 渲染表单为一系列的<p> 标签，每个<p> 标签包含一个字段
+
+http://python.usyiyi.cn/translate/django_182/ref/forms/api.html
+
+
+p45
+
+
+#p49
+In [1]: from django.contrib.auth import authenticate, login
+
+In [2]: user = authenticate(username="evan",password="22481")
+
+In [3]: user
+Out[3]: <User: evan>
+
+
+
+
+
+
