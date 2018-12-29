@@ -1,0 +1,8 @@
+2018年 12月 29日 星期六 22:06:03 CST
+
+有些笔记在他自己的源码目录里面
+
+
+(h4) evan@latop:~/github/django/hm_django/test1$ python  manage.py  startapp booktest
+
+
