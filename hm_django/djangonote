@@ -4,6 +4,82 @@
 
 用到pycharm 比较爽一些些
 
+ workon h4 #进入h4
+
+>>> import django
+>>> print(django.get_version())
+1.8.2
+
+
+
 (h4) evan@latop:~/github/django/hm_django/test1$ python  manage.py  startapp booktest
 
+python manage.py makemigrations #生成 为什么没反应 ？ appname  添加错地方了
+python manage.py   migrate  #执行迁移
 
+
+数据添加
+
+ python  manage.py shell
+
+>>> from  booktest.models import *
+>>> b=BookInfo()
+>>> b.btitle='abc'
+>>> from datetime import datetime
+>>> b.bpub_date=datetime(year=1990,month=1,day=12)
+>>> b.save()
+/home/evan/.virtualenvs/h4/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField BookInfo.bpub_date received a naive datetime (1990-01-12 00:00:00) while time zone support is active.
+  RuntimeWarning)
+
+>>> BookInfo.objects.all()
+[<BookInfo: BookInfo object>]
+
+
+    def __str__(self):
+        return self.btitle #添加输出这个方法
+
+可见有输出了 
+>>> from  booktest.models import *
+>>> BookInfo.objects.all()
+[<BookInfo: abc>]
+
+
+>>> b=BookInfo.objects.get(pk=1)
+>>> b.btitle='123'
+>>> b.save()
+>>> BookInfo.objects.get(pk=1)
+<BookInfo: 123>
+
+
+django 看了能明白很多东西哦 
+
+
+hm_django/test1$ python manage.py runserver
+
+后台管理
+
+python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+#这个有时会失效
+LANGUAGE_COOD='zh-hans'
+#LANGUAGE_COOD='zh-cn'
+
+TIME_ZONE='Asia/Shanghai'
+
+sudo python manage.py runserver 0.0.0.0:80
+
+
+向admin注册booktest的模型
+打开booktest/admin.py文件，注册模型
+from django.contrib import admin
+from models import BookInfo
+admin.site.register(BookInfo)
+
+自定义管理页面
+Django提供了admin.ModelAdmin类
+通过定义ModelAdmin的子类，来定义模型在Admin界面的显示方式
+
+ pip install pytz
+
+关联对象
+按照BookInfor的注册方式完成HeroInfo的注册 不太明白
