@@ -83,3 +83,119 @@ Django提供了admin.ModelAdmin类
 
 关联对象
 按照BookInfor的注册方式完成HeroInfo的注册 不太明白
+
+
+08-04获取并传递数据_recv.mkv
+
+昨晚一开始搞错了 还晕死
+ bookList=BookInfo.objects.all() #这行没效果                                             
+context ={'list':bookList} # 'bookList' 这样变成str了
+
+09详细展示
+
+
+
+
+11    # 这样还要看一下 不全明白呢                                                             
+12    bookList=BookInfo.objects.all() #这行没效果                                             
+13    context ={'list':bookList} # 'bookList' 这样变成str了
+
+ <ul>
+ 8{%for book in list%}
+ 9<li><a href="{{book.id}}">{{book.btitle}}</a></li>
+10
+11{%endfor%}
+
+
+
+urlpatterns=[
+4    url(r'^$',views.index)
+5    #url(r'^index$',views.index)                                                             
+6    url(r'/d+', )
+ url(r'(/d+)', views.show) #获取一个值 ()
+
+验证码
+ pip install pillow
+
+
+02 字段说明
+(h4) evan@latop:~/$ pip install  mysql-python 
+
+ django-admin startproject test2
+
+create database test2 charset=utf8;
+
+使用数据库生成模型类
+python manage.py inspectdb > booktest/models.py
+workon h4
+(h4) python manage.py  startapp  booktest
+
+2019年 01月 07日
+03 元选项
+突然觉得用心 看明白了视频还是很好玩的
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+MariaDB [test2]> desc bookinfo;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |
+| btitle   | varchar(20) | NO   |     | NULL    |                |
+| pub_date | datetime(6) | NO   |     | NULL    |                |
+| bread    | int(11)     | NO   |     | NULL    |                |
+| bcommet  | int(11)     | NO   |     | NULL    |                |
+| isDelete | tinyint(1)  | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+
+
+ insert into bookinfo(btitle,pub_date,bread,bcommet,isDelete) values ('射雕英雄传','1980-5-1',12,34,0), ('天龙八部','1986-7-24',36,40,0), ('笑傲江湖','1995-12-24',20,80,0), ('雪山飞狐','1987-11-11',58,24,0) ;
+
+删除数据用deeaver
+
+| id | btitle          | pub_date                   | bread | bcommet | isDelete |
++----+-----------------+----------------------------+-------+---------+----------+
+|  1 | 射雕英雄传      | 1980-05-01 00:00:00.000000 |    12 |      34 |        0 |
+|  2 | 天龙八部        | 1986-07-24 00:00:00.000000 |    36 |      40 |        0 |
+|  3 | 笑傲江湖        | 1995-12-24 00:00:00.000000 |    20 |      80 |        0 |
+|  4 | 雪山飞狐        | 1987-11-11 00:00:00.000000 |    58 |      24 |        0 |
++----+-----------------+----------------------------+-------+---------+----------+
+  
+MariaDB [test2]> delete from bookinfo where id=2;
+
+MariaDB [test2]> select * from bookinfo;
++----+-----------------+----------------------------+-------+---------+----------+
+| id | btitle          | pub_date                   | bread | bcommet | isDelete |
++----+-----------------+----------------------------+-------+---------+----------+
+|  1 | 射雕英雄传      | 1980-05-01 00:00:00.000000 |    12 |      34 |        0 |
+|  3 | 笑傲江湖        | 1995-12-24 00:00:00.000000 |    20 |      80 |        0 |
+|  4 | 雪山飞狐        | 1987-11-11 00:00:00.000000 |    58 |      24 |        0 |
++----+-----------------+----------------------------+-------+---------+----------+
+
+MariaDB [test2]> update bookinfo set isDelete='1' where id=6;
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [test2]> update bookinfo set isDelete='1' where id=7;
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [test2]> select * from bookinfo;
++----+-----------------+----------------------------+-------+---------+----------+
+| id | btitle          | pub_date                   | bread | bcommet | isDelete |
++----+-----------------+----------------------------+-------+---------+----------+
+|  5 | 射雕英雄传      | 1980-05-01 00:00:00.000000 |    12 |      34 |        0 |
+|  6 | 天龙八部        | 1986-07-24 00:00:00.000000 |    36 |      40 |        1 |
+|  7 | 笑傲江湖        | 1995-12-24 00:00:00.000000 |    20 |      80 |        1 |
+|  8 | 雪山飞狐        | 1987-11-11 00:00:00.000000 |    58 |      24 |        0 |
++----+-----------------+----------------------------+-------+---------+----------+
+
+
+(h4) evan@latop:~python manage.py shell
+
+>>> from booktest.models import BookInfo #class BookInfo
+>>> BookInfo.books1.all()
+[<BookInfo: BookInfo object>, <BookInfo: BookInfo object>, <BookInfo: BookInfo object>, <BookInfo: BookInfo object>]
+>>> BookInfo.books2.all()
+[<BookInfo: BookInfo object>, <BookInfo: BookInfo object>]
+

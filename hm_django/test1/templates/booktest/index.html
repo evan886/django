@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+ <ul>
+{%for book in list%}
+<li><a href="{{book.id}}">{{book.btitle}}</a></li>
+    
+{%endfor%}
+ </ul>
+</body>
+</html>

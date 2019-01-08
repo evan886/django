@@ -1,4 +1,3 @@
-#-*- coding:utf-8 -*-
 """test1 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,5 +19,5 @@ from booktest import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^',include('booktest.urls'))  #这里不能有$不然后面的app urls.py就到这里，过不去后面的了
+    url(r'^$',include('booktest.urls'))
 ]

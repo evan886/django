@@ -1,0 +1,18 @@
+#-*- coding:utf-8 -*-
+from django.conf.urls import url
+from . import views
+urlpatterns=[
+    url(r'^$',views.index),
+    url(r'^(\d+)$',views.show)
+]
+
+# is me  but err code 
+#from  django.conf.urls  import url
+#from  . import  views
+#urlpatterns=[
+#    url(r'^$',views.index)
+##    #url(r'^index$',views.index)
+##    url(r'^(\d+)$',views.show)
+#   url(r'^(\d+)$',views.show)
+##    #url(r'^(/d+)$', views.show) #获取一个值 ()
+#]

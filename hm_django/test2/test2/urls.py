@@ -1,5 +1,4 @@
-#-*- coding:utf-8 -*-
-"""test1 URL Configuration
+"""test2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -16,9 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from booktest import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^',include('booktest.urls'))  #这里不能有$不然后面的app urls.py就到这里，过不去后面的了
 ]
