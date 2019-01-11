@@ -199,3 +199,35 @@ MariaDB [test2]> select * from bookinfo;
 >>> BookInfo.books2.all()
 [<BookInfo: BookInfo object>, <BookInfo: BookInfo object>]
 
+05 模型类的创建方法
+ python manage.py  shell 
+
+>>> from booktest.models import BookInfo
+>>> from datetime import datetime 
+
+>>> b=BookInfo.create('abc',datetime(1990,1,1))
+>>> b.save()
+
+MariaDB [(none)]> use test2;
+
+MariaDB [test2]> select * from bookinfo;
++----+-----------------+----------------------------+-------+---------+----------+
+| id | btitle          | pub_date                   | bread | bcommet | isDelete |
++----+-----------------+----------------------------+-------+---------+---------
+
+|  9 | abc             | 1990-01-01 00:00:00.000000 |     0 |       0 |        0 |
++----+-----------------+----------------------------+-------+---------+----------+
+
+>>> from booktest.models import BookInfo
+>>> from datetime import datetime
+>>> b=BookInfo.books2.create('123',datetime(2017,1,1))
+b.save()
+
+|  9 | abc             | 1990-01-01 00:00:00.000000 |     0 |       0 |        0 |
+| 10 | 123             | 2017-01-01 00:00:00.000000 |     0 |       0 |        0 |
++----+-----------------+----------------------------+-------+---------+----------+
+
+代码
+/home/evan/github/django/hm_django/test2/booktest/models.py
+
+
