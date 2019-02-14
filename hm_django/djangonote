@@ -10,7 +10,7 @@
 >>> print(django.get_version())
 1.8.2
 
-
+django-admin startproject name
 
 (h4) evan@latop:~/github/django/hm_django/test1$ python  manage.py  startapp booktest
 
@@ -231,3 +231,36 @@ b.save()
 /home/evan/github/django/hm_django/test2/booktest/models.py
 
 
+
+02 URL 配置
+
+workon h4
+
+django-admin startproject test3
+python manage.py  startapp booktest
+
+
+因为urls.py 如此  其实就是re 有空再看一下
+    url(r'^(\d+)$',views.detail)
+
+so views.py
+def detail(request,p1):
+    return HttpResponse(p1)
+
+URL的反向解析
+
+
+ctrl+x ctr+u 变大写   emacs
+
+
+day01
+项目
+
+django-admin startproject  dailyfresh
+
+create database tiantian charset=utf8;
+
+python manage.py  startapp df_user
+
+python manage.py makemigrations
+python manage.py  migrate
