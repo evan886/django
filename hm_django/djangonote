@@ -264,3 +264,28 @@ python manage.py  startapp df_user
 
 python manage.py makemigrations
 python manage.py  migrate
+
+
+
+2019年 02月 14日 星期四 16:19:43
+排错 说是urls.py 错就一定是，先看自带的 再看app的
+
+2019年 02月 15日 星期五 13:45:47 C
+很多代码  例如说uemal 这些字段 居然老打错
+
+但是这个注册可以多个注册一样的用户名?
+
+
+我的用户名没写入mysql呀 晕   user.save() 之前忘记了 user.uname=uname
+
+
+天天生 代码参考
+https://github.com/yuanwenq/dailyfresh
+
+https://www.cnblogs.com/welan/p/9231530.html 天天生鲜项目实战-思路 数据库设计
+https://github.com/weilanhanf/daily_fresh_demo/tree/master/templates/df_user
+
+https://gitee.com/githone/dailyfresh
+
+https://blog.csdn.net/Duke10/article/details/78896545
+

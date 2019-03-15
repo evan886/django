@@ -1,0 +1,367 @@
+
+*dj基础学习
+** day01
+*** 02.项目搭建--创建项目和应用
+
+创建虚拟环境
+mkvirtualenv django_py3 -p python3
+
+3. 相关命令
+# 虚拟环境
+mkvirtualenv      # 创建虚拟环境
+rmvirtualenv      # 删除虚拟环境
+workon            # 进入虚拟环境、查看所有虚拟环境
+deactivate        # 退出虚拟环境
+
+# pip
+pip install       # 安装依赖包
+pip uninstall     # 卸载依赖包
+pip list          # 查看已安装的依赖包 Django (1.11.11)
+pip freeze        # 查看已安装的依赖包 django==1.11.11
+
+1.通过 pycharm 创建项目
+ existing interpreter ->interpreter 这是自已选择  eg  /home/evan/.virtualenvs/h4/bin/python
+more settings -> 下面哪个要选择 
+
+2.通过命令创建
+ workon 虚拟环境名
+ django-admin startproject 项目名
+ # 例：要创建的项目名为 Django02
+ django-admin startproject Django02
+
+ cd 项目根目录
+
+执行以下命令创建应用
+
+ # manage.py 为上述创建项目时自动生成的管理文件
+ python manage.py startapp 应用名
+ # 例： 
+ python manage.py startapp users
+
+*** 04.项目搭建--视图初步使用
+
+不用手工写from import 什么的 爽
+# def index(request):
+#     """视图:显示首页"""
+#     # request: HttpRequest类型
+#     # ctrl + alt/win + 空格
+#     return HttpResponse('<h3>首页<h3/>')
+
+*** 05.项目搭建--模板初步使用
+*** 06.项目配置--项目常用配置项
+*** 07.项目配置--静态文件配置和使用
+    Django 仅在调试模式下（DEBUG=True）能对外提供静态文件
+    当 DEBUG=False 工作在生产模式时，Django不再对外提供静态文件
+*** DONE 08.url配置--url配置
+*** DONE 09.url配置--匹配流程
+<2019-03-12 二>
+*** DONE 10.url配置--捕获url中的值
+*** DONE 11.请求对象--客户端传参的几种方式&Request对象
+*** DONE 12.请求对象--获取查询字符串中的值
+ctrl+all space
+dict.get() 比较好
+三、QueryDict对象
+
+    所在的包： django.http.QueryDict
+    HttpRequest 对象中的 GET 和 POST 属性 都是 QueryDict类型
+    与python字典不同：QueryDict对象一个键可以保存多个值
+
+http://127.0.0.1:8000/news2?category=1&page=3
+
+
+*** DONE 13.请求对象--获取请求体中的键值对数据（表单数据）
+
+http://127.0.0.1:8000/news3
+postman 选择x-www-form-
+
+表单 选择 form-data 
+category  page 随便填写一下 send 
+csfr 要先关闭一下
+
+[{"key":"category","value":"3","description":"","type":"text","enabled":true}]
+*** DONE 15.请求对象--获取请求体中的json字符串
+byte 转为str 可以用decode()
+body json  postman 选择  raw
+
+    导包： import json
+    字典 转 json : json.dumps(dict_data)
+    json 转 字典 :　json.loads(json_str)
+
+
+
+三、测试注意事项
+
+    Django对POST、PUT、PATCH、DELETE请求方式开启了CSRF安全防护
+
+    为方便测试，可以在settings.py文件中注释掉CSRF中间件，关闭CSRF防护
+
+*** DONE 16.请求对象--获取请求头中的参数
+*** DONE 17.请求对象--request其他属性&user属性
+
+** day02
+*** DONE 01.内容回顾
+*** DONE 02.响应对象--HttpResponse和JsonResponse
+
+JsonResponse 可以接收非字典数据 要指定safe=False
+
+*** DONE 03.响应对象--重定向和reverse函数使用
+reverse函数
+
+请求对象读取
+响应对象保存
+
+
+reverse函数: 动态生成URL地址，解决url硬编码维护麻烦的问题。
+
+使用方式：
+
+    配置url
+
+     # 项目的urls.py
+     urlpatterns = [
+         # 示例： 应用名可指定为 users
+         url(r'^', include('users.urls', namespace='应用名')),  
+     ]
+
+     # 应用的urls.py
+     urlpatterns = [
+         # 示例： url配置项名 可指定为 index
+         url(r'^index$', views.index, name='url配置项名'),
+     ]
+
+    动态生成url地址
+
+     url = reverse('应用名:url配置项名')        
+
+     # 示例： 生成的url的值为 /index
+     url = reverse('users:index')
+
+这个非常好 就算apps/urls.py 改index 为home 其它地方全部不用动
+*** DONE 04.状态保存--cookie介绍和使用
+请求对象读取
+响应对象保存
+
+*** DONE 05.状态保存--session原理介绍
+*** DONE 06.状态保存--案例实现session数据保存
+*** TODO  07.状态保存--保存session数据到Redis中
+ pip install django-redis==4.8.0
+
+
+
+
+
+
+
+
+
+
+*** TODO 04.状态保存--cookie介绍和使用
+
+
+pycharm 快速添加""" ""
+
+
+* postman
+https://www.getpostman.com/downloads/
+https://learning.getpostman.com/docs/postman/launching_postman/installation_and_updates/
+
+http://127.0.0.1:8000/news2?category=1&page=3
+放在里面就可行了了
+
+Troubleshooting
+
+要登录可以不理会的
+
+
+
+
+* note 
+
+先写个多线程登录，同步文件，执行命令，拿返回结果，记录日志这几个功能
+
+sudo apt-get update
+   67  sudo apt-get install simplescreenrecorder
+可能是kali麦克风问题
+录屏没有声音呀 
+HDCIV 高清同轴摄像机
+* TODO 科目4
+
+* 菜
+<2019-03-12 二> 
+小白菜炒粉丝 海带丝瘦肉汤开始以为是紫菜呢
+
+
+
+
+
+
+
+项目学习
+ day 1
+
+* 项目学习
+** 6 git gitee 
+** 7.搭建工程[部署前端到live-server服务器中
+npm install -g live-server
+npm WARN npm npm does not support Node.js v10.15.1
+
+meiduo_mall/front_end_pc$ live-server
+
+** 8.搭建django 工程
+~/github/meiduo_mall$ mkvirtualenv meiduo_mall -p python3
+(meiduo_mall) evan@latop: pip list 
+Package    Version
+---------- -------
+pip        19.0.3 
+setuptools 40.8.0 
+wheel      0.33.1 
+
+ pip install django==1.11.11
+  pip install django-redis #django-redis-4.10.0 redis-3.2.0
+   pip install   djangorestframework  #djangorestframework-3.9.1
+   pip install Pillow
+   pip install PyMySQL
+
+django-admin startproject meiduo_mall
+workon meiduo_mall
+
+** err
+ File "/home/evan/.virtualenvs/meiduo_mall/lib/python3.7/site-packages/django/contrib/admin/widgets.py", line 152
+    '%s=%s' % (k, v) for k, v in params.items(),
+    ^
+SyntaxError: Generator expression must be parenthesized
+
+把“'%s=%s' % (k, v) for k, v in params.items(),”中的后边的逗号去掉就
+https://zhuanlan.zhihu.com/p/44276280
+
+
+** 9 pycharm运行django 
+
+run-->edit  configuratios --> Parameters runserver
+右键 manage.py 要加上运行参数 runserver
+还可以改端口什么的
+
+** 10 调整工程目录结构
+
+    apps 存放Django的应用
+    libs 存放第三方的库文件
+    settings 存放配置文件，分为开发dev和线上prod
+    utils 存放项目自己定义的公共函数或类等
+    docs 用于存放一些说明文档资料
+    scripts 用于存放管理脚本文件
+分多个配置文件dev.py product.py etc
+
+** 模块导入路径 
+
+
+
+#这个是用pycahrm new-->python  package 不然没有相关的文件和目录的自动生成喽
+meiduo_mall$ mkdir apps
+cd apps # apps 和settings  wsgi.py 等等同目录 我一开始搞错了目录 所以老是说什么没有users 不要搞错，不然google 也是没用的
+python ../../manage.py startapp users
+#今天他又成功了 昨天是不成功的呀
+(meiduo_mall)meiduo_mall/meiduo_mall/apps$ python ../../manage.py  startapp users
+
+
+修改settings/dev.py 文件中的路径信息
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# 添加导包路径
+import sys
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
+day 2 
+
+20:00
+
+
+day 2
+**  3工程 project 初始化配置
+create database meiduo_mall default charset=utf8;
+
+#练习直接root  哈哈
+create user meiduo_user identified by 'meiduo';
+grant all on meiduo_mall.* to 'meiduo_user'@'%';
+flush privileges;
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '127.0.0.1',  # 数据库主机
+        'PORT': 3306,  # 数据库端口
+        'USER': 'meiduo',  # 数据库用户名
+        'PASSWORD': 'meiduo',  # 数据库用户密码
+        'NAME': 'meiduo_mall'  # 数据库名字
+    }
+}
+pycharm 连接数据库
+要安装相关的plugs 
+
+记得在工程目录 ./meiduo_mall/__init__.py文件中添加
+
+import pymysql
+pymysql.install_as_MySQLdb()
+
+关于django-redis 的使用，说明文档可见http://django-redis-chs.readthedocs.io/zh_CN/latest/
+
+今天终于学习完一个小时的视频 
+
+** 4自定义用户认证模型类
+
+python3  manage.py  makemigrations
+ python3  manage.py  migrate 
+
+** 5-后端实现图片验证码接口的流程分析
+
+python3  ../../manage.py startapp verifications
+
+libs 目录的东西要自己添加
+
+** 6-后端实现图片验证码接口
+
+** 7-前端显示和点击显示图片验证码
+  
+
+ 
+
+放在redis 里面的 记得要启动redis
+
+ redis-cli 
+127.0.0.1:6379> select 2
+OK
+
+127.0.0.1:6379[2]> keys *
+1) "img_5b96d264-c075-4c8a-998a-9f918bec1aa0"
+2) "img_dffd0ddc-c7b9-4a51-92c5-20484009e113"
+3) "img_25acee15-acf1-4060-b398-b1c56f7c8086"
+4) "img_ab187704-8d17-4035-a953-7d2807c1c4da"
+
+
+** 8-短信验证码接口实现思路-重点
+ 云通迅
+
+** 10-在序列化器中校验图片验证码
+
+从8080 拿到image_code 从reids keys * 得到image_code_id 
+http://127.0.0.1:8000/sms_code/15530232345/?image_code=nre8&image_code_id=9288a03b-d42a-47a4-b18d-0eb2f136e2bc
+
+** 11-后端在序列化器中检查是否在60s内有发送记录
+
+
+class ImageCodeView(APIView): 这个要回看一下，不太记得了，还是没看呢
+
+** 12-实现发送短信功能
+
+day 3
+
+** 2-发送短信功能的前端实现
+** mynote
+https://yiyibooks.cn/xx/Django_1.11.6/index.html
+https://www.jianshu.com/p/2639549bedc8
+
+https://redis-py.readthedocs.io/en/latest/
+序列化?
+
+#FLUSHALL
