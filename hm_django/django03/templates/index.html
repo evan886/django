@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 显示模板变量 -->
+    <h1>{{ name }}</h1>
+    列表元素: {{ my_list.0 }} <br/>
+    字典值: {{ my_dict.age }} <br/>
+    对象属性值: {{ my_obj.name }} <br/>
+
+
+<h3>length过滤器</h3>
+
+列表元素个数: {{ my_list|length }} <br/>
+
+<h3>date过滤器</h3>
+
+日期显示: {{ my_date }} <br/>
+日期显示: {{ my_date|date:'Y年m月d日 H时i分s秒' }} <br/>
+
+</body>
+</html>

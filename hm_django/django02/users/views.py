@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views import View
 
-#from decorators import check_ip
+from decorators import check_ip
 
 
 
@@ -61,7 +61,6 @@ def set_session(request):
 
     request.session['user_id'] = 10
     request.session['user_name'] = 'Django'
-
     return HttpResponse('保存session键值对数据成功')
 
 
@@ -73,3 +72,47 @@ def get_session(request):
 
     text = 'session数据: user_id=%s, user_name=%s' % (user_id, user_name)
     return HttpResponse(text)
+
+# def post(request):
+#     """显示发帖界面"""
+#     return render(request, 'post.html')
+# def do_post(request):
+#     """执行发帖操作"""
+#
+#     # 获取帖子标题和内容
+#     title = request.POST.get('title')
+#     content = request.POST.get('content')
+#
+#     return HttpResponse('发帖成功: %s %s' % (title, content))
+
+
+@check_ip #== check_ip(post)
+def post(request):
+    """显示发帖界面"""
+    if request.method == 'GET':
+        return render(request, 'post.html')
+    else:  # POST
+        # 获取帖子标题和内容
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        return HttpResponse('发帖成功: %s %s' % (title, content))
+
+# /post2
+class PostView(View):
+
+    def get(self, request):
+        return render(request, 'post2.html')
+
+    # @method_decorator(check_ip)
+    def post(self, request):
+        # 获取帖子标题和内容
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        return HttpResponse('发帖成功: %s %s' % (title, content))
+
+class CheckIpMixin(object):
+
+    """扩展类:扩展了一个检测ip是否为黑名单的功能"""
+    @method_decorator(check_ip)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)

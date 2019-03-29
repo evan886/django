@@ -143,8 +143,15 @@ reverse函数: 动态生成URL地址，解决url硬编码维护麻烦的问题�
 
 *** DONE 05.状态保存--session原理介绍
 *** DONE 06.状态保存--案例实现session数据保存
-*** TODO  07.状态保存--保存session数据到Redis中
+*** DONE 07.状态保存--保存session数据到Redis中
+redis-cli --raw 
  pip install django-redis==4.8.0
+*** DONE 09.类视图--发帖小案例实现
+*** DONE  10.类视图--类视图的使用
+
+*** DONE 11.类视图--类视图源码阅读
+*** DONE 12.类视图--装饰器--函数视图中使用装饰器*
+*** TODO 13.类视图--装饰器--类视图使用装饰器&method_decorator使用 
 
 
 
@@ -155,11 +162,97 @@ reverse函数: 动态生成URL地址，解决url硬编码维护麻烦的问题�
 
 
 
-*** TODO 04.状态保存--cookie介绍和使用
 
 
-pycharm 快速添加""" ""
+** day03
 
+*** DONE 03.数据库--配置使用mysql数据
+create database db_django_c09 charset=utf8;
+
+ pip install pymysql
+
+在 与项目同名的包 下的 __init__.py 文件中，初始化MySQL驱动
+
+ import pymysql
+ pymysql.install_as_MySQLdb()
+
+python manage.py makemigrations
+python manage.py migrate
+*** DONE 04.数据库--定义模型类 <2019-03-20 三>
+*** DONE 05.数据库--模型类定义说明 <2019-03-21 四>
+多对多一开始居然看晕了，后来回来看又好了
+
+# 备注: blank=True前端html界面，此字段可以不输入内容
+
+*** DONE 06.数据库--模型管理器使用 
+python manage.py shell
+>>> from users.models import *
+*** DONE 07.数据库--增删改<2019-03-24 日>
+*** DONE 09.查询--准备测试数据<2019-03-29 五>
+file:///D:/django%E5%85%B6%E4%BB%96%E7%89%88%E6%9C%AC%E8%A7%86%E9%A2%91/Django%E8%AE%B2%E4%B9%89/C05-Database/TestDatas.html
+
+有一种办法是删除掉数据库生成文件和删除掉库 再重新用迁移命令就行了
+
+
+** day04
+
+*** DONE 03.模板--模板使用  <2019-03-29 五>
+ 模板渲染
+
+方式一： 通过render函数
+
+from django.shortcuts import render
+
+def index(request):
+    context = {'name': 'django' }
+    # 参数1：请求对象
+    # 参数2：模块路径
+    # 参数3：字典数据
+    return render(request, 'index.html', context)
+
+方式二： 通过Template对象的render方法
+
+from django.template import loader
+
+def index(request):
+    # 获取模板对象
+    template = loader.get_template('index.html')  # type: Template
+    # 渲染得到字符串
+    html_str = template.render(context)
+    # 响应请求
+    return HttpResponse(html_str)
+
+*** DONE 04.模板--模板语法<2019-03-31 日>
+
+模块如下
+<body>
+    <!-- 显示模板变量 -->
+    <h1>{{ name }}</h1>
+    列表元素: {{ my_list.0 }} <br/>
+    字典值: {{ my_dict.age }} <br/>
+
+</body>
+
+视图如下
+   # 模板使用的字典数据
+    context = {
+        'name': 'django',
+        #'my_obj': Student(),
+        'my_list': [1, 2, 3, 4],
+        #'my_date': now(),
+        'my_dict': {
+            'name': 'python',
+            'age': 20,
+            'gender': '男',
+        }
+    }
+
+
+
+*** DONE 05.admin站点--管理后台使用]
+但是部门 员工在后台 点击进去是没东西的
+
+*** DONE 06.admin站点--列表界面自定义 <2019-03-29 五>
 
 * postman
 https://www.getpostman.com/downloads/
@@ -365,3 +458,12 @@ https://redis-py.readthedocs.io/en/latest/
 序列化?
 
 #FLUSHALL
+
+* Troubleshooting 
+
+*** one 
+AttributeError: module 'django.contrib.admin.sites' has no attribute 'register'
+
+# admin.sites.register(Department)
+admin.site.register(Department)
+

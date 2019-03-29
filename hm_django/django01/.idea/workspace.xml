@@ -2,149 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad54e0da-7a50-4a4d-94ff-a786a5158f86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/df_user/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/.idea/dailyfresh.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/dailyfresh/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/dailyfresh/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/dailyfresh/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/dailyfresh/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/dbmodel/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/dbmodel/base_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/css/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/adv01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/adv02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/banner01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/banner02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/banner03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/banner04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/banner05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/banner06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/fruit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods006.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods009.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods010.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods011.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods012.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods014.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods016.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods017.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods018.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods019.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods020.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods/goods021.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/goods_detail.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/icons02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/interval_line.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/left_bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/login_banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/logo02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/pay_icons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/register_banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/shop_cart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/slide.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/slide02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/slide03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/images/slide04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/jquery-1.12.4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/jquery.cookie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/slide.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/static/js/user_info.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/base_detail_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/base_no_cart_count.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/base_user_center.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/index0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/user_center_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/user_center_order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/templates/user_module/user_center_site.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/migrations/0002_address.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/tasks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/user_module/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/utils/decoretions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/utils/encryption.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/dailyfresh/utils/middlerware.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/egsrc/dailyfresh/project_description.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/notefresh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dailyfresh/templates/base_foot.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/.idea/django02.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/apps/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/apps/verifications/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/apps/verifications/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/libs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../meiduo_mall/meiduo_mall/utils/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/.idea/test3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/templates/booktest/getTest1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/templates/booktest/getTest2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test3/templates/booktest/getTest3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.spyproject/codestyle.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.spyproject/encoding.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.spyproject/vcs.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.spyproject/workspace.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyfresh/dailyfresh/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyfresh/dailyfresh/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyfresh/df_user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyfresh/df_user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyfresh/df_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyfresh/df_user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dailyfresh/templates/df_user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../dailyfresh/templates/df_user/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../djangonote" beforeDir="false" afterPath="$PROJECT_DIR$/../djangonote" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test2/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test2/.idea/test2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../test2/.idea/test2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../test2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test3/booktest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test3/booktest/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test3/booktest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test3/booktest/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test3/test3/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test3/test3/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test3/test3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test3/test3/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django02/decorators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django02/templates/post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django02/templates/post2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django03/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django03/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3d504a95-b847-41a0-a9fb-c2e067ec651c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3d504a95-b847-41a0-a9fb-c2e067ec651c/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/django01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django02/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django02/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django02/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django02/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../note2019.org" beforeDir="false" afterPath="$PROJECT_DIR$/../note2019.org" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +26,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/django01$manage.coverage" NAME="manage Coverage Results" MODIFIED="1552459129355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/django01$manage__1_.coverage" NAME="manage (1) Coverage Results" MODIFIED="1552626490731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django02" />
+    <SUITE FILE_PATH="coverage/django01$manage__2_.coverage" NAME="manage (2) Coverage Results" MODIFIED="1553832882264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django03" />
+    <SUITE FILE_PATH="coverage/django01$manage__1_.coverage" NAME="manage (1) Coverage Results" MODIFIED="1552893473277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django02" />
     <SUITE FILE_PATH="coverage/django01$apps.coverage" NAME="apps Coverage Results" MODIFIED="1552399778179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/users" />
   </component>
   <component name="DatabaseView">
@@ -171,69 +44,53 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="db_django_c09@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="db_django_c09@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="db_django_c09@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="db_django_c09: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="db_django_c09@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="django_migrations: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="sqlite_master: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="sqlite_sequence: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
-        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="db_django_c09: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="employee: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../django02/users/urls.py">
+        <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+            <state relative-caret-position="-90">
+              <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../django02/users/views.py">
+        <entry file="file://$PROJECT_DIR$/../django03/users/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="204">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
-                <element signature="e#0#81#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -262,16 +119,27 @@
         <option value="$PROJECT_DIR$/users/views.py" />
         <option value="$PROJECT_DIR$/../django02/django02/settings.py" />
         <option value="$PROJECT_DIR$/../django02/django02/urls.py" />
+        <option value="$PROJECT_DIR$/../django02/templates/post.html" />
+        <option value="$PROJECT_DIR$/../django02/templates/post2.html" />
+        <option value="$PROJECT_DIR$/../django02/decorators.py" />
         <option value="$PROJECT_DIR$/../django02/users/views.py" />
+        <option value="$PROJECT_DIR$/../django03/django03/__init__.py" />
         <option value="$PROJECT_DIR$/../django02/users/urls.py" />
+        <option value="$PROJECT_DIR$/../django03/django03/settings.py" />
+        <option value="$PROJECT_DIR$/../django03/django03/urls.py" />
+        <option value="$PROJECT_DIR$/../django03/users/urls.py" />
+        <option value="$PROJECT_DIR$/../django03/users/views.py" />
+        <option value="$PROJECT_DIR$/../django03/templates/index.html" />
+        <option value="$PROJECT_DIR$/../django03/users/models.py" />
+        <option value="$PROJECT_DIR$/../django03/users/admin.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1249" />
-    <option name="y" value="70" />
-    <option name="width" value="671" />
-    <option name="height" value="1010" />
+    <option name="x" value="1345" />
+    <option name="y" value="35" />
+    <option name="width" value="575" />
+    <option name="height" value="1045" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -281,34 +149,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django02" type="462c0819:PsiDirectoryNode" />
+              <item name="django03" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django02" type="462c0819:PsiDirectoryNode" />
-              <item name="django02" type="462c0819:PsiDirectoryNode" />
+              <item name="django03" type="462c0819:PsiDirectoryNode" />
+              <item name="django03" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django02" type="462c0819:PsiDirectoryNode" />
+              <item name="django03" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django03" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../meiduo_mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -325,7 +199,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.manage (1)">
+  <component name="RunManager" selected="Python.manage (2)">
     <configuration name="apps" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="django01" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -362,6 +236,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../django02/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manage (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="django03" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../django03" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../django03/manage.py" />
       <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -438,15 +334,41 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="django03" type="Python.DjangoServer" factoryName="Django server">
+      <module name="django03" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Django server.django01" />
       <item itemvalue="Django server.django02" />
+      <item itemvalue="Django server.django03" />
       <item itemvalue="Python.manage" />
       <item itemvalue="Python.apps" />
       <item itemvalue="Python.manage (1)" />
+      <item itemvalue="Python.manage (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.manage (2)" />
         <item itemvalue="Python.manage (1)" />
         <item itemvalue="Python.manage" />
         <item itemvalue="Python.apps" />
@@ -469,12 +391,18 @@
       <workItem from="1552377118483" duration="1529000" />
       <workItem from="1552447812841" duration="20939000" />
       <workItem from="1552533891293" duration="15488000" />
-      <workItem from="1552621850326" duration="12269000" />
+      <workItem from="1552621850326" duration="12705000" />
+      <workItem from="1552718230705" duration="5922000" />
+      <workItem from="1552877630645" duration="18427000" />
+      <workItem from="1553007511555" duration="2457000" />
+      <workItem from="1553050531269" duration="20686000" />
+      <workItem from="1553567998668" duration="1202000" />
+      <workItem from="1553830713980" duration="22438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69209000" />
+    <option name="totallyTimeSpent" value="140777000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -486,15 +414,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1249" y="70" width="671" height="1010" extended-state="0" />
+    <frame x="1153" y="35" width="767" height="1045" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2082671" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.25873363" visible="true" weight="0.17793104" />
+      <window_info id="Structure" order="1" sideWeight="0.74126637" side_tool="true" weight="0.25547445" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.389738" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37663755" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -502,14 +431,14 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32969433" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29257643" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32969433" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3187773" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32994923" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.40222576" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.08413793" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,9 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../django02/manage.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../django02/django02/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -594,25 +520,173 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3d504a95-b847-41a0-a9fb-c2e067ec651c/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django02/templates/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django02/templates/post2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.7/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django02/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/django03/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fb5b936e-642d-458b-8b33-6ce467bba1b5/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django02/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django02/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../django02/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="236">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3d504a95-b847-41a0-a9fb-c2e067ec651c/console.sql">
+    <entry file="file://$PROJECT_DIR$/../django03/users/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../django02/users/views.py">
+    <entry file="file://$PROJECT_DIR$/../django03/users/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="-495" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/django03/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/django03/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding>
-            <element signature="e#0#81#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.7/site-packages/django/template/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/meiduo_mall/lib/python3.7/site-packages/django/shortcuts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/employee">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/department">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

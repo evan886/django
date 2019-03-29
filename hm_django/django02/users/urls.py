@@ -16,4 +16,17 @@ urlpatterns= [
     # /get_session
     url(r'^get_session$', views.get_session),
 
+    #post(发帖)
+    #显示发帖界面 /post
+    url(r'^post$', views.post),
+    # # 执行发帖操作
+    #url(r'^do_post$', views.do_post),
+
+    # 类视图路由配置: /post2
+    url(r'^post2$', views.PostView.as_view()),
+
+
 ]
+
+#keyword
+
