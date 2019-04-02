@@ -1,5 +1,5 @@
 
-*dj基础学习
+*dj基础学习OA
 ** day01
 *** 02.项目搭建--创建项目和应用
 
@@ -253,6 +253,64 @@ def index(request):
 但是部门 员工在后台 点击进去是没东西的
 
 *** DONE 06.admin站点--列表界面自定义 <2019-03-29 五>
+*** DONE 07.admin站点--编辑界面自定义 <2019-03-31 日>
+注意事项
+
+    不指定默认会显示表中所有的字段
+    显示的字段顺序与此列表指定的先后顺序保持一致
+    如果字段为日期或时间类型，并且指定了 auto_now 或 auto_now_add 为 true，则该字段为不可编辑字段，默认不会显示出来，也不能手动指定进来，否则报错
+    主键id不能指定进来，因为id不能编辑
+
+
+*** DONE 08.admin站点--图片上传
+
+使用Admin站点保存图片，需要安装Python的图片操作包
+
+pip install Pillow
+
+
+
+    admin.site.site_title 设置页面标题
+    admin.site.site_header 设置网站页头
+    admin.site.index_title 设置首页标语
+
+在 users/admin.py 文件中添加以下信息
+
+from django.contrib import admin
+
+admin.site.site_title = 'CMDB'
+admin.site.site_header = 'MY CMDB系统'
+admin.site.index_title = '欢迎使用CMDB'
+
+
+*** DONE 10.web两种开发模式<2019-03-31 日>
+
+django REST framework
+
+*** DONE 11.RESF风格<2019-04-01 一>
+*** DONE 12.RESF接口开发--核心工作
+*** DONE 13.RESF接口开发--定义路由和类视图
+*** DONE 14.RESF接口开发--查询所有的部门
+*** DONE 15.RESF接口开发--新增部门<2019-04-02 二>
+*** DONE 16.RESF接口开发--查询更新删除一条数据<2019-04-02 二>
+*** TODO 17.RESF接口开发--DRF框架实现 <2019-04-03 三>
+上面几个就是用django rest 开发
+class DepartmentDetailView(View):
+    def get(self, request, id):  为什么是这三个参数
+
+
+
+序列化 对象(查询集) -> json字符串
+as_view()方法 ？
+views.DepartmentDetailView.as_view
+
+Django中，对那些我们平时经常用的View进行了封装，比如用于渲染一个template的TemplateView，用于处理重定向的RedirectView，用于处理表单的FormView，用于处理数据库对象的DetailView和ListView等，这些View有一个共同的父类：View，在这个View类中，向外暴露了一个类方法：as_view()，它返回一个方法，
+这就是所有的View类的入口，这也和view是一个方法的说法不违背了。
+
+
+
+原文：https://blog.csdn.net/hackerain/article/details/40919789 
+
 
 * postman
 https://www.getpostman.com/downloads/

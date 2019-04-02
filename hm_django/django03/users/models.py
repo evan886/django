@@ -1,3 +1,4 @@
+#--*--utf-8 --*--
 from django.db import models
 from django.db.models.manager import Manager
 
@@ -34,7 +35,7 @@ class Department(models.Model):
 
 
     # 自定义模型管理器, 自定义之后, Django默认的objects就不会自动创建了
-    manager = DepartmentManager()
+    # manager = DepartmentManager()
 
     def __str__(self):
         return self.name
@@ -42,6 +43,10 @@ class Department(models.Model):
     class Meta:
         # 指定表名
         db_table = 'department'
+
+
+
+
 
 
 class Employee(models.Model):
@@ -74,9 +79,16 @@ class Employee(models.Model):
         # 指定表名
         db_table = 'employee'
 
+        verbose_name = '员工'
+        verbose_name_plural = verbose_name  # 去掉复数的s
 
 
 
+class TestUser(models.Model):
+
+    name = models.CharField(max_length=20)
+    # 头像: 表示把上传的图片保存在 media/user子文件夹中
+    avatar = models.ImageField(upload_to='user')
 
 #
 # class Teacher(models.Model):

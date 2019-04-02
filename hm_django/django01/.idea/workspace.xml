@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad54e0da-7a50-4a4d-94ff-a786a5158f86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../django02/decorators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/templates/post.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django02/templates/post2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django03/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../django03/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3d504a95-b847-41a0-a9fb-c2e067ec651c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3d504a95-b847-41a0-a9fb-c2e067ec651c/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/django01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fb5b936e-642d-458b-8b33-6ce467bba1b5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fb5b936e-642d-458b-8b33-6ce467bba1b5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django02/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django02/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django02/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django02/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django03/django03/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/django03/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django03/django03/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/django03/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django03/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django03/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../note2019.org" beforeDir="false" afterPath="$PROJECT_DIR$/../note2019.org" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +18,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/django01$manage.coverage" NAME="manage Coverage Results" MODIFIED="1552459129355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/django01$manage__2_.coverage" NAME="manage (2) Coverage Results" MODIFIED="1553832882264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django03" />
+    <SUITE FILE_PATH="coverage/django01$manage__2_.coverage" NAME="manage (2) Coverage Results" MODIFIED="1554212466135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django03" />
     <SUITE FILE_PATH="coverage/django01$manage__1_.coverage" NAME="manage (1) Coverage Results" MODIFIED="1552893473277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django02" />
     <SUITE FILE_PATH="coverage/django01$apps.coverage" NAME="apps Coverage Results" MODIFIED="1552399778179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/users" />
   </component>
@@ -57,13 +49,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="db_django_c09: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="db_django_c09@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="db_django_c09: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="employee: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -75,22 +60,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="690">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../django03/users/admin.py">
+        <entry file="file://$PROJECT_DIR$/../django03/rest/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            <state relative-caret-position="413">
+              <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,21 +107,23 @@
         <option value="$PROJECT_DIR$/../django02/users/views.py" />
         <option value="$PROJECT_DIR$/../django03/django03/__init__.py" />
         <option value="$PROJECT_DIR$/../django02/users/urls.py" />
-        <option value="$PROJECT_DIR$/../django03/django03/settings.py" />
-        <option value="$PROJECT_DIR$/../django03/django03/urls.py" />
         <option value="$PROJECT_DIR$/../django03/users/urls.py" />
         <option value="$PROJECT_DIR$/../django03/users/views.py" />
         <option value="$PROJECT_DIR$/../django03/templates/index.html" />
-        <option value="$PROJECT_DIR$/../django03/users/models.py" />
         <option value="$PROJECT_DIR$/../django03/users/admin.py" />
+        <option value="$PROJECT_DIR$/../django03/rest/urls.py" />
+        <option value="$PROJECT_DIR$/../django03/django03/urls.py" />
+        <option value="$PROJECT_DIR$/../django03/users/models.py" />
+        <option value="$PROJECT_DIR$/../django03/django03/settings.py" />
+        <option value="$PROJECT_DIR$/../django03/rest/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1345" />
-    <option name="y" value="35" />
-    <option name="width" value="575" />
-    <option name="height" value="1045" />
+    <option name="x" value="1153" />
+    <option name="y" value="70" />
+    <option name="width" value="767" />
+    <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -165,7 +149,7 @@
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
               <item name="django03" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
@@ -182,7 +166,7 @@
     <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../meiduo_mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -397,12 +381,16 @@
       <workItem from="1553007511555" duration="2457000" />
       <workItem from="1553050531269" duration="20686000" />
       <workItem from="1553567998668" duration="1202000" />
-      <workItem from="1553830713980" duration="22438000" />
+      <workItem from="1553830713980" duration="22609000" />
+      <workItem from="1554010578228" duration="10268000" />
+      <workItem from="1554093455470" duration="21854000" />
+      <workItem from="1554176041133" duration="3839000" />
+      <workItem from="1554203047763" duration="6512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140777000" />
+    <option name="totallyTimeSpent" value="183421000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,16 +402,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1153" y="35" width="767" height="1045" extended-state="0" />
-    <editor active="true" />
+    <frame x="1153" y="70" width="767" height="1010" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.25873363" visible="true" weight="0.17793104" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.25873363" visible="true" weight="0.21931034" />
       <window_info id="Structure" order="1" sideWeight="0.74126637" side_tool="true" weight="0.25547445" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32969433" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37663755" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15174672" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -432,13 +418,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32969433" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32969433" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3187773" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.31713554" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32994923" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.7723785" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.08413793" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.12413793" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,20 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../django03/django03/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../django03/django03/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../django03/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -640,20 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/employee">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/department">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../django03/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -671,22 +630,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/users_testuser">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../django03/users/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        <state relative-caret-position="481">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/rest/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/django03/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding>
+            <element signature="e#642#683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/django03/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/rest/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#175#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/employee">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/department">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/rest/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
