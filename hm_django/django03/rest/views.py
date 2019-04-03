@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import View
 from rest_framework.viewsets import ModelViewSet
 
-#from rest.serializers import DepartmentSerialiser
+from rest.serializers import DepartmentSerialiser
 from users.models import Department
 '''
 1. 查询所有部门  GET     /departments/
@@ -121,3 +121,13 @@ class DepartmentDetailView(View):
         dep.delete()
         # 删除成功返回204状态码
         return HttpResponse(status=204)
+
+
+class DepartmentViewSet(ModelViewSet):
+    """
+    视图集:
+    增删改查(一条,多条)
+    """
+    queryset = Department.objects.all()
+    # 使用的序列器
+    serializer_class = DepartmentSerialiser

@@ -23,7 +23,7 @@ def index(request):
     path = request.path
     method = request.method
     print(path, method)
-    # user = request.user
+    # users = request.users
     # authenticated: 认证,登录
     # 已登录：AbstractUser对象；
     # 未登录：AnonymousUser对象

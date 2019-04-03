@@ -293,7 +293,7 @@ django REST framework
 *** DONE 14.RESF接口开发--查询所有的部门
 *** DONE 15.RESF接口开发--新增部门<2019-04-02 二>
 *** DONE 16.RESF接口开发--查询更新删除一条数据<2019-04-02 二>
-*** TODO 17.RESF接口开发--DRF框架实现 <2019-04-03 三>
+*** DONE 17.RESF接口开发--DRF框架实现 <2019-04-03 三>
 上面几个就是用django rest 开发
 class DepartmentDetailView(View):
     def get(self, request, id):  为什么是这三个参数
@@ -325,7 +325,28 @@ Troubleshooting
 
 
 
+** day 05 
+*** DONE 02.序列化器--作用&定义&序列化基本使用 <2019-04-03 三>
+数据格式转换
 
+    序列化： 对象 -> 字典 -> json
+    反序列化： json -> 字典 -> 对象
+    python json模块:
+        字典 <-> json
+
+序列化器作用
+
+    数据格式转换：
+        序列化： 对象 -> 字典
+        反序列化： 字典 -> 对象（OrderedDict）
+
+    校验参数合法性；
+    保存和修改数据；
+
+
+可以在控制台操作
+*** TODO 03.序列化器--序列化器类型和选项<2019-04-03 三>
+*** TODO 04.序列化器--序列化基本使用&many=True参数
 * note 
 
 先写个多线程登录，同步文件，执行命令，拿返回结果，记录日志这几个功能

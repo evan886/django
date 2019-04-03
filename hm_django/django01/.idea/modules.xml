@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../DjangoREST/.idea/DjangoREST.iml" filepath="$PROJECT_DIR$/../DjangoREST/.idea/DjangoREST.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/django01.iml" filepath="$PROJECT_DIR$/.idea/django01.iml" />
       <module fileurl="file://$PROJECT_DIR$/../django02/.idea/django02.iml" filepath="$PROJECT_DIR$/../django02/.idea/django02.iml" />
       <module fileurl="file://$PROJECT_DIR$/../django03/.idea/django03.iml" filepath="$PROJECT_DIR$/../django03/.idea/django03.iml" />

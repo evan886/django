@@ -9,19 +9,20 @@
 
 from django.conf.urls import url
 #from rest_framework.routers import SimpleRouter
+from rest_framework.routers import SimpleRouter
 
 from rest import views
-#from rest.views import DepartmentViewSet
+from rest.views import DepartmentViewSet
 
 urlpatterns = [
 
-    # # 列表视图
-    url(r'^departments/$', views.DepartmentListView.as_view()),
-    # # 详情视图
-    url(r'^departments/(\d+)/$', views.DepartmentDetailView.as_view()),
+    # # # 列表视图
+    # url(r'^departments/$', views.DepartmentListView.as_view()),
+    # # # 详情视图
+    # url(r'^departments/(\d+)/$', views.DepartmentDetailView.as_view()),
 ]
 
 # 注册drf路由
-#router = SimpleRouter()
-#router.register('departments', DepartmentViewSet)
-#urlpatterns += router.urls  # 追加路由配置
+router = SimpleRouter()
+router.register('departments', DepartmentViewSet)
+urlpatterns += router.urls  # 追加路由配置

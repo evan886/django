@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad54e0da-7a50-4a4d-94ff-a786a5158f86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fb5b936e-642d-458b-8b33-6ce467bba1b5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fb5b936e-642d-458b-8b33-6ce467bba1b5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/.idea/DjangoREST.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/users/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DjangoREST/users/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../django03/rest/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/django01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../django03/django03/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/django03/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django03/django03/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/django03/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django03/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../django03/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django03/rest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/rest/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../django03/rest/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../django03/rest/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../note2019.org" beforeDir="false" afterPath="$PROJECT_DIR$/../note2019.org" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +27,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/django01$manage.coverage" NAME="manage Coverage Results" MODIFIED="1552459129355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/django01$manage__2_.coverage" NAME="manage (2) Coverage Results" MODIFIED="1554212466135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django03" />
+    <SUITE FILE_PATH="coverage/django01$manage__2_.coverage" NAME="manage (2) Coverage Results" MODIFIED="1554261403758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django03" />
     <SUITE FILE_PATH="coverage/django01$manage__1_.coverage" NAME="manage (1) Coverage Results" MODIFIED="1552893473277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../django02" />
+    <SUITE FILE_PATH="coverage/django01$manage__3_.coverage" NAME="manage (3) Coverage Results" MODIFIED="1554282614092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../DjangoREST" />
     <SUITE FILE_PATH="coverage/django01$apps.coverage" NAME="apps Coverage Results" MODIFIED="1552399778179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/users" />
   </component>
   <component name="DatabaseView">
@@ -61,19 +71,70 @@
         <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="690">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../django03/rest/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DjangoREST/users/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DjangoREST/DjangoREST/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+              <folding>
+                <element signature="e#644#685#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DjangoREST/users/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DjangoREST/users/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../django03/rest/views.py">
+        <entry file="file://$PROJECT_DIR$/../DjangoREST/users/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -111,18 +172,28 @@
         <option value="$PROJECT_DIR$/../django03/users/views.py" />
         <option value="$PROJECT_DIR$/../django03/templates/index.html" />
         <option value="$PROJECT_DIR$/../django03/users/admin.py" />
-        <option value="$PROJECT_DIR$/../django03/rest/urls.py" />
         <option value="$PROJECT_DIR$/../django03/django03/urls.py" />
         <option value="$PROJECT_DIR$/../django03/users/models.py" />
         <option value="$PROJECT_DIR$/../django03/django03/settings.py" />
         <option value="$PROJECT_DIR$/../django03/rest/views.py" />
+        <option value="$PROJECT_DIR$/../django03/rest/serializers.py" />
+        <option value="$PROJECT_DIR$/../django03/rest/urls.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/DjangoREST/settings.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/user/models.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/user/serializers.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/DjangoREST/__init__.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/user/views.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/user/urls.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/DjangoREST/urls.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/users/urls.py" />
+        <option value="$PROJECT_DIR$/../DjangoREST/users/serializers.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1153" />
+    <option name="x" value="1345" />
     <option name="y" value="70" />
-    <option name="width" value="767" />
+    <option name="width" value="575" />
     <option name="height" value="1010" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -139,21 +210,16 @@
           <expand>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django03" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoREST" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django03" type="462c0819:PsiDirectoryNode" />
-              <item name="django03" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoREST" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoREST" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django03" type="462c0819:PsiDirectoryNode" />
-              <item name="rest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django01" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django03" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoREST" type="462c0819:PsiDirectoryNode" />
               <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -183,7 +249,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.manage (2)">
+  <component name="RunManager" selected="Python.manage (3)">
     <configuration name="apps" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="django01" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -250,6 +316,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="manage (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DjangoREST" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../DjangoREST" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../DjangoREST/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="django01" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,6 +358,29 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DjangoREST" type="Python.DjangoServer" factoryName="Django server">
+      <module name="DjangoREST" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
     <configuration name="django01" type="Python.DjangoServer" factoryName="Django server">
@@ -345,13 +456,16 @@
       <item itemvalue="Django server.django01" />
       <item itemvalue="Django server.django02" />
       <item itemvalue="Django server.django03" />
+      <item itemvalue="Django server.DjangoREST" />
       <item itemvalue="Python.manage" />
       <item itemvalue="Python.apps" />
       <item itemvalue="Python.manage (1)" />
       <item itemvalue="Python.manage (2)" />
+      <item itemvalue="Python.manage (3)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.manage (3)" />
         <item itemvalue="Python.manage (2)" />
         <item itemvalue="Python.manage (1)" />
         <item itemvalue="Python.manage" />
@@ -386,11 +500,12 @@
       <workItem from="1554093455470" duration="21854000" />
       <workItem from="1554176041133" duration="3839000" />
       <workItem from="1554203047763" duration="6512000" />
+      <workItem from="1554255568484" duration="19701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183421000" />
+    <option name="totallyTimeSpent" value="203122000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -402,14 +517,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1153" y="70" width="767" height="1010" extended-state="0" />
+    <frame x="1345" y="70" width="575" height="1010" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.25873363" visible="true" weight="0.21931034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.25873363" visible="true" weight="0.18574108" />
       <window_info id="Structure" order="1" sideWeight="0.74126637" side_tool="true" weight="0.25547445" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.15174672" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4334061" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -425,7 +541,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.12413793" />
+      <window_info anchor="right" id="Database" order="4" weight="0.21200751" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,30 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../django03/django03/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../django03/rest/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#175#207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://fb5b936e-642d-458b-8b33-6ce467bba1b5/schema/db_django_c09/table/employee">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -702,13 +794,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/rest/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#175#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/django03/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../django03/rest/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../django03/rest/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="93" column="26" lean-forward="true" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+        <state relative-caret-position="450">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/DjangoREST/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="910">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/DjangoREST/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="e#644#685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/DjangoREST/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DjangoREST/users/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="22" lean-forward="true" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
         </state>
       </provider>
     </entry>
