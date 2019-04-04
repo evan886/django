@@ -311,7 +311,6 @@ Django中，对那些我们平时经常用的View进行了封装，比如用于�
 
 原文：https://blog.csdn.net/hackerain/article/details/40919789 
 
-
 * postman
 https://www.getpostman.com/downloads/
 https://learning.getpostman.com/docs/postman/launching_postman/installation_and_updates/
@@ -324,9 +323,18 @@ Troubleshooting
 要登录可以不理会的
 
 
-
 ** day 05 
 *** DONE 02.序列化器--作用&定义&序列化基本使用 <2019-04-03 三>
+
+from users.serializers import *
+from users.serializers import *
+from users.models import *
+dep = Department.objects.get(id=1)
+serializer = DepartmentSerializer(dep)
+serializer.data
+{'name': '研发部', 'create_date': '2009-01-01', 'is_delete': False}
+
+
 数据格式转换
 
     序列化： 对象 -> 字典 -> json
@@ -345,8 +353,18 @@ Troubleshooting
 
 
 可以在控制台操作
-*** TODO 03.序列化器--序列化器类型和选项<2019-04-03 三>
-*** TODO 04.序列化器--序列化基本使用&many=True参数
+*** DONE 03.序列化器--序列化器类型和选项<2019-04-03 三>
+*** DONE 04.序列化器--序列化基本使用&many=True参数<2019-04-04 四>
+
+3、序列化操作： many=True参数
+
+如果要序列化的是包含多条数据的QuerySet，则需要指定many=True，否则报错
+
+*** TODO see aga  05.序列化器--关联对象序列化--序列化为主键 <2019-04-04 四>
+*** TODO 06.序列化器--关联对象序列化--序列化为对象&多个关联对象
+
+*** 07.序列化器--反序列化基本使用
+
 * note 
 
 先写个多线程登录，同步文件，执行命令，拿返回结果，记录日志这几个功能
