@@ -1,22 +1,36 @@
 passsrc 记录着自己手工成功了的代码　
 
+
+2018 -- 2021 
+其实有新书 新代码了呢 
+
+
+
+https://github.com/qiwsir/DjangoPracticeProject
+
+下载可能要用 浏览器 zip包下了现在这环境 
+
 #+-------------------------------------------------------+
 #|     Chapter1            |
 #+-------------------------------------------------------+
 
 
-kali  django 1.8.18
+kali  django  2.2  # 2021  1.8.18
 
 src
 https://github.com/qiwsir/DjangoPracticeProject.git
 
 django-admin startproject mysite
-cd myiste
- python manage.py  startapp blog
+
+run  
+cd mysite/ && python3  manage.py  runserver
+
+cd myiste #创建应用 
+ python3 manage.py  startapp blog
 
 
-python manage.py  makemigrations
-python manage.py migrate  #Updates database schema.
+python3 manage.py  makemigrations #建立 数据库表的文件
+python3  manage.py migrate  #Updates database schema.
 
 
 两个相同的命令
@@ -24,10 +38,12 @@ python manage.py startapp blog
 django-admin startapp blog
 
 
-python manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+python3 manage.py  createsuperuser --username=admin --email=evan886@gmail.com
+
+sudo pip3  install pytz  # 时区  
 
 
-1.3.3 显示文章标题
+1.3.1 显示文章标题
 python   manage.py  shell
 
 In [1]: from django.contrib.auth.models import User
@@ -70,6 +86,24 @@ https://www.crifan.com/detailed_explanation_about_python_regular_express_named_g
 https://www.zhihu.com/question/27448499
 
 
+1.3.2 查看文章内容 
+
+van@myxps:~/github/django/project/laoqi/2021/mysite$ python3 manage.py  shell
+In [1]: from blog.models import BlogArticles                                                                                                                                 
+In [2]: article = BlogArticles.objects.get(id=1)                                                                                                                             
+In [3]: article.body                                                                                                                                                         
+Out[3]: 'Rust 是一门系统编程语言，专注于系统安全，支持函数式和命令式以及泛型等编程范式。其首先在 2006 年作为 Mozilla 员工 Graydon Hoare 的私人项目出现，并于 2009 年开始接受 Mozilla 赞助。第一个有版本号的 Rust 编译器于 2012 年 1 月发布，而其第一个稳定版本 Rust 1.0 于 2015 年 5 月 15 日发布。\r\n\r\n在过去的一年里，Rust 分布于全球的数百名团队成员和志愿者除了进行各种错误修复外，还发布了超过 9 个新的 Rust 稳定版本，获得了很多高质量的功能，比如处理无限循环、引入对 64 位 ARM Linux 的一级支持以及对 ARM macOS 和 ARM Windows 的二级支持、稳定常量泛型等，有助于在更多的地方使用和维护 Rust。\r\n\r\n同时，Rust 在社区和行业中也在继续稳步前进。2020 年，Rust 再次被 StackOverflow 评选为最受欢迎的编程语言。2 月初，Rust 成立了新的基金会，以更好地建立和维护一个可持续的开源生态系统。一些使用 Rust 的公司已经组建了专门维护和改进 Rust 项目的团队，包括华为、AWS、Facebook 和 Microsoft。越来越多的公司已经在其项目中采用 Rust，并提供官方支持的 Rust API。\r\n\r\n文中还表示，将来 Rust 的应用领域会更广。比如 Embark 工作室已经发布了 rust-gpu 的初始原型，这是一个新的编译器后端，允许使用 Rust 为 GPU 编写图形着色器；Linux 项目目前正在考虑将 Rust 作为第二种语言加入内核的提议，以便能够编写更安全的驱动和内核空间代码；Google 也已经宣布，支持用 Rust 构建 Android 操作系统的低级组件，并且已经开始用 Rust 重写他们的蓝牙堆栈。\r\n\r\n现在，Rust 团队正在计划和协调 2021 年的 Rust'
+
+In [4]: article.title                                                                                                                                                        
+Out[4]: 'Rust发布6周年'
+
+In [5]: article.author.username                                                                                                                                              
+Out[5]: 'admin'
+
+In [6]: article.publish                                                                                                                                                      
+Out[6]: datetime.datetime(2021, 5, 25, 6, 37, tzinfo=<UTC>)
+
+
 #+-------------------------------------------------------+
 #|     Chapter2           | 用户管理
 #+-------------------------------------------------------+
@@ -78,12 +112,13 @@ https://www.zhihu.com/question/27448499
 http://192.168.201.95/static/xx.png
 
 2.2.1
-python  manage.py   startapp account
+python3   manage.py   startapp account
+
+#要先有 account/models.py 
 
 In [2]: from account.forms import LoginForm
 
 In [3]: login_form  = LoginForm()
-
 
 In [4]: print(login_form)
 <tr><th><label for="id_username">Username:</label></th><td><input id="id_username" name="username" type="text" /></td></tr>
@@ -113,7 +148,7 @@ p45
 
 #p49
 In [1]: from django.contrib.auth import authenticate, login
-
+#这里密码是故意写错的 哈哈
 In [2]: user = authenticate(username="evan",password="22481")
 
 In [3]: user

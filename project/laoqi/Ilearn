@@ -1,0 +1,50 @@
+python3   manage.py   --help
+
+django-admin help  startapp
+
+
+打开 setting 发现没添加 app  blog 
+
+
+sqlitebrowser db.sqlite3
+
+
+{% extends "base.html " %}  #  --> {% extends "base.html" %}  # 
+
+{% extends "bash.html" %}  -->{% extends "base.html" %}
+
+
+每个app 的urls.py 一定要有app_name 
+app_name='blog' account时报错想起昨晚的blog是有app_name的 不错呢
+
+
+要有导入这个哦 
+from django.http  import  HttpResponse, HttpResponseRedirect
+
+
+记得import 对models 
+NameError at /account/login/
+
+name 'HttpResponse' is not defined
+
+Request Method: 	POST
+Request URL: 	http://127.0.0.1:8000/account/login/
+Django Version: 	2.2.15
+Exception Type: 	NameError
+Exception Value: 	
+
+name 'HttpResponse' is not defined
+
+Exception Location: 	/home/evan/github/django/project/laoqi/tmp/mysite/account/views.py in user_login, line 18
+Python Executable: 	/usr/bin/python3
+
+
+
+#on urls.py 
+from django.urls import path, include
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+rsync -avz  adj110/mysite/ ch01
